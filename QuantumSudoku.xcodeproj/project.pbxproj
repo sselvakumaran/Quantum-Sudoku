@@ -1,0 +1,613 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		74ED0FCF29E352E10091573B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74ED0FCE29E352E10091573B /* AppDelegate.swift */; };
+		74ED0FD129E352E10091573B /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 74ED0FD029E352E10091573B /* GameScene.sks */; };
+		74ED0FD329E352E10091573B /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 74ED0FD229E352E10091573B /* Actions.sks */; };
+		74ED0FD529E352E10091573B /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74ED0FD429E352E10091573B /* GameScene.swift */; };
+		74ED0FD729E352E10091573B /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74ED0FD629E352E10091573B /* GameViewController.swift */; };
+		74ED0FDA29E352E10091573B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74ED0FD829E352E10091573B /* Main.storyboard */; };
+		74ED0FDC29E352E20091573B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74ED0FDB29E352E20091573B /* Assets.xcassets */; };
+		74ED0FDF29E352E20091573B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74ED0FDD29E352E20091573B /* LaunchScreen.storyboard */; };
+		74ED0FE929E352E20091573B /* QuantumSudokuTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74ED0FE829E352E20091573B /* QuantumSudokuTests.swift */; };
+		74ED0FF329E352E20091573B /* QuantumSudokuUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74ED0FF229E352E20091573B /* QuantumSudokuUITests.swift */; };
+		74ED0FF529E352E20091573B /* QuantumSudokuUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74ED0FF429E352E20091573B /* QuantumSudokuUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		74ED0FE529E352E20091573B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 74ED0FC329E352E10091573B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 74ED0FCA29E352E10091573B;
+			remoteInfo = QuantumSudoku;
+		};
+		74ED0FEF29E352E20091573B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 74ED0FC329E352E10091573B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 74ED0FCA29E352E10091573B;
+			remoteInfo = QuantumSudoku;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		74ED0FCB29E352E10091573B /* QuantumSudoku.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuantumSudoku.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		74ED0FCE29E352E10091573B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		74ED0FD029E352E10091573B /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
+		74ED0FD229E352E10091573B /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
+		74ED0FD429E352E10091573B /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		74ED0FD629E352E10091573B /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		74ED0FD929E352E10091573B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		74ED0FDB29E352E20091573B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		74ED0FDE29E352E20091573B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		74ED0FE429E352E20091573B /* QuantumSudokuTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuantumSudokuTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		74ED0FE829E352E20091573B /* QuantumSudokuTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuantumSudokuTests.swift; sourceTree = "<group>"; };
+		74ED0FEE29E352E20091573B /* QuantumSudokuUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuantumSudokuUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		74ED0FF229E352E20091573B /* QuantumSudokuUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuantumSudokuUITests.swift; sourceTree = "<group>"; };
+		74ED0FF429E352E20091573B /* QuantumSudokuUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuantumSudokuUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		74ED0FC829E352E10091573B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		74ED0FE129E352E20091573B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		74ED0FEB29E352E20091573B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		74ED0FC229E352E10091573B = {
+			isa = PBXGroup;
+			children = (
+				74ED0FCD29E352E10091573B /* QuantumSudoku */,
+				74ED0FE729E352E20091573B /* QuantumSudokuTests */,
+				74ED0FF129E352E20091573B /* QuantumSudokuUITests */,
+				74ED0FCC29E352E10091573B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		74ED0FCC29E352E10091573B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				74ED0FCB29E352E10091573B /* QuantumSudoku.app */,
+				74ED0FE429E352E20091573B /* QuantumSudokuTests.xctest */,
+				74ED0FEE29E352E20091573B /* QuantumSudokuUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		74ED0FCD29E352E10091573B /* QuantumSudoku */ = {
+			isa = PBXGroup;
+			children = (
+				74ED0FCE29E352E10091573B /* AppDelegate.swift */,
+				74ED0FD029E352E10091573B /* GameScene.sks */,
+				74ED0FD229E352E10091573B /* Actions.sks */,
+				74ED0FD429E352E10091573B /* GameScene.swift */,
+				74ED0FD629E352E10091573B /* GameViewController.swift */,
+				74ED0FD829E352E10091573B /* Main.storyboard */,
+				74ED0FDB29E352E20091573B /* Assets.xcassets */,
+				74ED0FDD29E352E20091573B /* LaunchScreen.storyboard */,
+			);
+			path = QuantumSudoku;
+			sourceTree = "<group>";
+		};
+		74ED0FE729E352E20091573B /* QuantumSudokuTests */ = {
+			isa = PBXGroup;
+			children = (
+				74ED0FE829E352E20091573B /* QuantumSudokuTests.swift */,
+			);
+			path = QuantumSudokuTests;
+			sourceTree = "<group>";
+		};
+		74ED0FF129E352E20091573B /* QuantumSudokuUITests */ = {
+			isa = PBXGroup;
+			children = (
+				74ED0FF229E352E20091573B /* QuantumSudokuUITests.swift */,
+				74ED0FF429E352E20091573B /* QuantumSudokuUITestsLaunchTests.swift */,
+			);
+			path = QuantumSudokuUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		74ED0FCA29E352E10091573B /* QuantumSudoku */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 74ED0FF829E352E20091573B /* Build configuration list for PBXNativeTarget "QuantumSudoku" */;
+			buildPhases = (
+				74ED0FC729E352E10091573B /* Sources */,
+				74ED0FC829E352E10091573B /* Frameworks */,
+				74ED0FC929E352E10091573B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = QuantumSudoku;
+			productName = QuantumSudoku;
+			productReference = 74ED0FCB29E352E10091573B /* QuantumSudoku.app */;
+			productType = "com.apple.product-type.application";
+		};
+		74ED0FE329E352E20091573B /* QuantumSudokuTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 74ED0FFB29E352E20091573B /* Build configuration list for PBXNativeTarget "QuantumSudokuTests" */;
+			buildPhases = (
+				74ED0FE029E352E20091573B /* Sources */,
+				74ED0FE129E352E20091573B /* Frameworks */,
+				74ED0FE229E352E20091573B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				74ED0FE629E352E20091573B /* PBXTargetDependency */,
+			);
+			name = QuantumSudokuTests;
+			productName = QuantumSudokuTests;
+			productReference = 74ED0FE429E352E20091573B /* QuantumSudokuTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		74ED0FED29E352E20091573B /* QuantumSudokuUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 74ED0FFE29E352E20091573B /* Build configuration list for PBXNativeTarget "QuantumSudokuUITests" */;
+			buildPhases = (
+				74ED0FEA29E352E20091573B /* Sources */,
+				74ED0FEB29E352E20091573B /* Frameworks */,
+				74ED0FEC29E352E20091573B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				74ED0FF029E352E20091573B /* PBXTargetDependency */,
+			);
+			name = QuantumSudokuUITests;
+			productName = QuantumSudokuUITests;
+			productReference = 74ED0FEE29E352E20091573B /* QuantumSudokuUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		74ED0FC329E352E10091573B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1420;
+				LastUpgradeCheck = 1420;
+				TargetAttributes = {
+					74ED0FCA29E352E10091573B = {
+						CreatedOnToolsVersion = 14.2;
+					};
+					74ED0FE329E352E20091573B = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = 74ED0FCA29E352E10091573B;
+					};
+					74ED0FED29E352E20091573B = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = 74ED0FCA29E352E10091573B;
+					};
+				};
+			};
+			buildConfigurationList = 74ED0FC629E352E10091573B /* Build configuration list for PBXProject "QuantumSudoku" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 74ED0FC229E352E10091573B;
+			productRefGroup = 74ED0FCC29E352E10091573B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				74ED0FCA29E352E10091573B /* QuantumSudoku */,
+				74ED0FE329E352E20091573B /* QuantumSudokuTests */,
+				74ED0FED29E352E20091573B /* QuantumSudokuUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		74ED0FC929E352E10091573B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				74ED0FDA29E352E10091573B /* Main.storyboard in Resources */,
+				74ED0FD129E352E10091573B /* GameScene.sks in Resources */,
+				74ED0FDC29E352E20091573B /* Assets.xcassets in Resources */,
+				74ED0FDF29E352E20091573B /* LaunchScreen.storyboard in Resources */,
+				74ED0FD329E352E10091573B /* Actions.sks in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		74ED0FE229E352E20091573B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		74ED0FEC29E352E20091573B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		74ED0FC729E352E10091573B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				74ED0FD529E352E10091573B /* GameScene.swift in Sources */,
+				74ED0FD729E352E10091573B /* GameViewController.swift in Sources */,
+				74ED0FCF29E352E10091573B /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		74ED0FE029E352E20091573B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				74ED0FE929E352E20091573B /* QuantumSudokuTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		74ED0FEA29E352E20091573B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				74ED0FF329E352E20091573B /* QuantumSudokuUITests.swift in Sources */,
+				74ED0FF529E352E20091573B /* QuantumSudokuUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		74ED0FE629E352E20091573B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 74ED0FCA29E352E10091573B /* QuantumSudoku */;
+			targetProxy = 74ED0FE529E352E20091573B /* PBXContainerItemProxy */;
+		};
+		74ED0FF029E352E20091573B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 74ED0FCA29E352E10091573B /* QuantumSudoku */;
+			targetProxy = 74ED0FEF29E352E20091573B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		74ED0FD829E352E10091573B /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				74ED0FD929E352E10091573B /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		74ED0FDD29E352E20091573B /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				74ED0FDE29E352E20091573B /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		74ED0FF629E352E20091573B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		74ED0FF729E352E20091573B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		74ED0FF929E352E20091573B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = MSKJNTV647;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIStatusBarHidden = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Sriman-Selvakumaran.QuantumSudoku";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		74ED0FFA29E352E20091573B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = MSKJNTV647;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIStatusBarHidden = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Sriman-Selvakumaran.QuantumSudoku";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		74ED0FFC29E352E20091573B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = MSKJNTV647;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Sriman-Selvakumaran.QuantumSudokuTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/QuantumSudoku.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/QuantumSudoku";
+			};
+			name = Debug;
+		};
+		74ED0FFD29E352E20091573B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = MSKJNTV647;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Sriman-Selvakumaran.QuantumSudokuTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/QuantumSudoku.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/QuantumSudoku";
+			};
+			name = Release;
+		};
+		74ED0FFF29E352E20091573B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = MSKJNTV647;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Sriman-Selvakumaran.QuantumSudokuUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = QuantumSudoku;
+			};
+			name = Debug;
+		};
+		74ED100029E352E20091573B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = MSKJNTV647;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Sriman-Selvakumaran.QuantumSudokuUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = QuantumSudoku;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		74ED0FC629E352E10091573B /* Build configuration list for PBXProject "QuantumSudoku" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				74ED0FF629E352E20091573B /* Debug */,
+				74ED0FF729E352E20091573B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		74ED0FF829E352E20091573B /* Build configuration list for PBXNativeTarget "QuantumSudoku" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				74ED0FF929E352E20091573B /* Debug */,
+				74ED0FFA29E352E20091573B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		74ED0FFB29E352E20091573B /* Build configuration list for PBXNativeTarget "QuantumSudokuTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				74ED0FFC29E352E20091573B /* Debug */,
+				74ED0FFD29E352E20091573B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		74ED0FFE29E352E20091573B /* Build configuration list for PBXNativeTarget "QuantumSudokuUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				74ED0FFF29E352E20091573B /* Debug */,
+				74ED100029E352E20091573B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 74ED0FC329E352E10091573B /* Project object */;
+}
