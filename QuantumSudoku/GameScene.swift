@@ -18,7 +18,6 @@ class GameScene: SKScene {
     private var spinnyNode : SKShapeNode?
     
     override func sceneDidLoad() {
-
         self.lastUpdateTime = 0
         
         // Get label node from scene and store it for use later

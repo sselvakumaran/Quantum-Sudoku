@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		741429A729E45C9A00D0861A /* sudoku3.png in Resources */ = {isa = PBXBuildFile; fileRef = 741429A629E45C9A00D0861A /* sudoku3.png */; };
+		74B2E31329EB14E3009FFF7F /* GameScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74B2E31229EB14E3009FFF7F /* GameScreen.storyboard */; };
 		74ED0FCF29E352E10091573B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74ED0FCE29E352E10091573B /* AppDelegate.swift */; };
 		74ED0FD129E352E10091573B /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 74ED0FD029E352E10091573B /* GameScene.sks */; };
 		74ED0FD329E352E10091573B /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 74ED0FD229E352E10091573B /* Actions.sks */; };
@@ -40,6 +41,7 @@
 
 /* Begin PBXFileReference section */
 		741429A629E45C9A00D0861A /* sudoku3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sudoku3.png; sourceTree = "<group>"; };
+		74B2E31229EB14E3009FFF7F /* GameScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GameScreen.storyboard; sourceTree = "<group>"; };
 		74ED0FCB29E352E10091573B /* QuantumSudoku.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuantumSudoku.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		74ED0FCE29E352E10091573B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		74ED0FD029E352E10091573B /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 				74ED0FD629E352E10091573B /* GameViewController.swift */,
 				74ED0FD829E352E10091573B /* Main.storyboard */,
 				74ED0FDD29E352E20091573B /* LaunchScreen.storyboard */,
+				74B2E31229EB14E3009FFF7F /* GameScreen.storyboard */,
 			);
 			path = QuantumSudoku;
 			sourceTree = "<group>";
@@ -249,6 +252,7 @@
 				741429A729E45C9A00D0861A /* sudoku3.png in Resources */,
 				74ED0FDA29E352E10091573B /* Main.storyboard in Resources */,
 				74ED0FD129E352E10091573B /* GameScene.sks in Resources */,
+				74B2E31329EB14E3009FFF7F /* GameScreen.storyboard in Resources */,
 				74ED0FDC29E352E20091573B /* Assets.xcassets in Resources */,
 				74ED0FDF29E352E20091573B /* LaunchScreen.storyboard in Resources */,
 				74ED0FD329E352E10091573B /* Actions.sks in Resources */,
@@ -460,7 +464,8 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UIStatusBarHidden = YES;
+				INFOPLIST_KEY_UIStatusBarHidden = NO;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -488,7 +493,8 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UIStatusBarHidden = YES;
+				INFOPLIST_KEY_UIStatusBarHidden = NO;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
