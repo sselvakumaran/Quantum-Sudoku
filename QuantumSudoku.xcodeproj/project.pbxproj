@@ -8,9 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		741429A729E45C9A00D0861A /* sudoku3.png in Resources */ = {isa = PBXBuildFile; fileRef = 741429A629E45C9A00D0861A /* sudoku3.png */; };
+		74D698C329EB709200EA7A74 /* HomeScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 74D698C229EB709200EA7A74 /* HomeScene.sks */; };
+		74D698C529EB70AF00EA7A74 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 74D698C429EB70AF00EA7A74 /* GameScene.sks */; };
+		74D698C729EB767F00EA7A74 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D698C629EB767F00EA7A74 /* SwiftUIView.swift */; };
+		74D698C929EB76D700EA7A74 /* HomeScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D698C829EB76D700EA7A74 /* HomeScreenController.swift */; };
 		74ED0FCF29E352E10091573B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74ED0FCE29E352E10091573B /* AppDelegate.swift */; };
-		74ED0FD529E352E10091573B /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74ED0FD429E352E10091573B /* GameScene.swift */; };
-		74ED0FD729E352E10091573B /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74ED0FD629E352E10091573B /* GameViewController.swift */; };
 		74ED0FDA29E352E10091573B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74ED0FD829E352E10091573B /* Main.storyboard */; };
 		74ED0FDC29E352E20091573B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74ED0FDB29E352E20091573B /* Assets.xcassets */; };
 		74ED0FDF29E352E20091573B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74ED0FDD29E352E20091573B /* LaunchScreen.storyboard */; };
@@ -38,10 +40,12 @@
 
 /* Begin PBXFileReference section */
 		741429A629E45C9A00D0861A /* sudoku3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sudoku3.png; sourceTree = "<group>"; };
+		74D698C229EB709200EA7A74 /* HomeScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = HomeScene.sks; sourceTree = "<group>"; };
+		74D698C429EB70AF00EA7A74 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
+		74D698C629EB767F00EA7A74 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
+		74D698C829EB76D700EA7A74 /* HomeScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenController.swift; sourceTree = "<group>"; };
 		74ED0FCB29E352E10091573B /* QuantumSudoku.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuantumSudoku.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		74ED0FCE29E352E10091573B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		74ED0FD429E352E10091573B /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
-		74ED0FD629E352E10091573B /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		74ED0FD929E352E10091573B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		74ED0FDB29E352E20091573B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		74ED0FDE29E352E20091573B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -111,10 +115,12 @@
 			children = (
 				741429A829E45CCB00D0861A /* Assets */,
 				74ED0FCE29E352E10091573B /* AppDelegate.swift */,
-				74ED0FD429E352E10091573B /* GameScene.swift */,
-				74ED0FD629E352E10091573B /* GameViewController.swift */,
 				74ED0FD829E352E10091573B /* Main.storyboard */,
 				74ED0FDD29E352E20091573B /* LaunchScreen.storyboard */,
+				74D698C229EB709200EA7A74 /* HomeScene.sks */,
+				74D698C429EB70AF00EA7A74 /* GameScene.sks */,
+				74D698C629EB767F00EA7A74 /* SwiftUIView.swift */,
+				74D698C829EB76D700EA7A74 /* HomeScreenController.swift */,
 			);
 			path = QuantumSudoku;
 			sourceTree = "<group>";
@@ -241,8 +247,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				741429A729E45C9A00D0861A /* sudoku3.png in Resources */,
+				74D698C329EB709200EA7A74 /* HomeScene.sks in Resources */,
 				74ED0FDA29E352E10091573B /* Main.storyboard in Resources */,
 				74ED0FDC29E352E20091573B /* Assets.xcassets in Resources */,
+				74D698C529EB70AF00EA7A74 /* GameScene.sks in Resources */,
 				74ED0FDF29E352E20091573B /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -268,9 +276,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				74ED0FD529E352E10091573B /* GameScene.swift in Sources */,
-				74ED0FD729E352E10091573B /* GameViewController.swift in Sources */,
+				74D698C729EB767F00EA7A74 /* SwiftUIView.swift in Sources */,
 				74ED0FCF29E352E10091573B /* AppDelegate.swift in Sources */,
+				74D698C929EB76D700EA7A74 /* HomeScreenController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

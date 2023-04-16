@@ -5,15 +5,36 @@
 //  Created by Sriman Selvakumaran on 4/9/23.
 //
 
+import GameplayKit
+import SpriteKit
 import UIKit
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var scene: SKScene!
+    var skView: SKView!
+    var storyboard: UIStoryboard?
+    var rootController: UIViewController?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        storyboard = UIStoryboard(name: "Main", bundle: nil)
+        rootController = storyboard!.instantiateInitialViewController()
+        skView = rootController?.view.subviews.first(where: { $0 is SKView }) as? SKView
+        
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.rootViewController = rootController
+        
+        //window?.addSubview(skView)
+        
+        scene = SKScene(fileNamed: "HomeScene")
+        scene!.scaleMode = .aspectFill
+        skView.presentScene(scene)
+        
+        window?.makeKeyAndVisible()
+        
         return true
     }
 
