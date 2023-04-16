@@ -2,9 +2,15 @@ import GameplayKit
 import SpriteKit
 import UIKit
 
-class MyScene: SKScene {
+class GameScene: SKScene {
     
     // Declare any variables or properties here
+    var entities = [GKEntity]()
+    var graphs = [String : GKGraph]()
+    
+    override func sceneDidLoad() {
+        
+    }
     
     override func didMove(to view: SKView) {
         // Code to run when the scene is first loaded into view

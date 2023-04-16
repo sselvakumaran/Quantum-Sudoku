@@ -20,21 +20,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        storyboard = UIStoryboard(name: "Main", bundle: nil)
-        rootController = storyboard!.instantiateInitialViewController()
-        skView = rootController?.view.subviews.first(where: { $0 is SKView }) as? SKView
-        
-        window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = rootController
-        
-        //window?.addSubview(skView)
-        
-        scene = SKScene(fileNamed: "HomeScene")
-        scene!.scaleMode = .aspectFill
-        skView.presentScene(scene)
-        
-        window?.makeKeyAndVisible()
-        
         return true
     }
 
