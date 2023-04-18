@@ -5,7 +5,7 @@ import UIKit
 class HomeScene: SKScene {
     
     // Declare any variables or properties here
-    var titlegradient: CGGradient
+    // var titlegradient: CGGradient
     
     override func sceneDidLoad() {
         // Set the background color of the SKScene to the dynamic color
@@ -27,10 +27,21 @@ class HomeScene: SKScene {
     }
     
     func updateColorStyles() {
+        // background color
         self.backgroundColor = UIColor(named: "Background")!
+        
+        // color gradient for Title1
+        /*let labelNode = self.childNode(withName: "Title1") as! SKLabelNode
+        
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = labelNode.frame
+        
+        labelNode.maskNode = gradientNode
+        labelNode.fontColor = .white */
         
         (self.childNode(withName: "Title1") as! SKLabelNode).fontColor = UIColor(named: "NumberColor")!
         
+        // title2 default
         (self.childNode(withName: "Title2") as! SKLabelNode).fontColor = UIColor(named: "NumberColor")!
     }
     // Add any additional functions or methods here
