@@ -54,8 +54,6 @@ class HomeScene: SKScene {
         for touch in touches {
             let location = touch.location(in: self)
             if newGameButton!.contains(location) {
-                print("registered touch")
-                print(switchDelegate != nil)
                 switchDelegate?.moveToGameScene(scene: self, game_code: 0)
                 /* self.view!.presentScene(gameScene!, transition: SKTransition.push(with: SKTransitionDirection.down, duration: 1)) */
             }

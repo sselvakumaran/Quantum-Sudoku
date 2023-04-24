@@ -15,6 +15,7 @@ class MainViewController: UIViewController, QSceneDelegate {
     var gameScene: GKScene? = nil
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         // Load 'GameScene.sks' as a GKScene. This provides gameplay related content
         // including entities and graphs.
@@ -44,7 +45,6 @@ class MainViewController: UIViewController, QSceneDelegate {
     }
     
     func moveToGameScene(scene: HomeScene, game_code: Int) {
-        print("function called")
         
         if gameScene != nil {
             // Get the SKScene from the loaded GKScene
@@ -52,12 +52,13 @@ class MainViewController: UIViewController, QSceneDelegate {
             // Copy gameplay related content over to the scene
                 
             // Set the scale mode to scale to fit the window
-            gameRoot.scaleMode = .aspectFill
-                
+            gameRoot.scaleMode = .fill
             // Present the scene
             if let view = self.view as! SKView? {
-                
+                view.frame = self.view.safeAreaLayoutGuide.layoutFrame
                 view.presentScene(gameRoot, transition: SKTransition.push(with: SKTransitionDirection.down, duration: 1))
+                print(gameRoot.frame.size)
+                print(self.view.frame.size)
                 view.ignoresSiblingOrder = true
             }
         }
