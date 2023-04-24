@@ -2,8 +2,8 @@
   "colors" : [
     {
       "color" : {
-        "platform" : "universal",
-        "reference" : "systemTealColor"
+        "platform" : "osx",
+        "reference" : "unemphasizedSelectedTextColor"
       },
       "idiom" : "universal"
     },
@@ -15,8 +15,8 @@
         }
       ],
       "color" : {
-        "platform" : "universal",
-        "reference" : "systemTealColor"
+        "platform" : "osx",
+        "reference" : "unemphasizedSelectedTextColor"
       },
       "idiom" : "universal"
     },
@@ -29,7 +29,7 @@
       ],
       "color" : {
         "platform" : "osx",
-        "reference" : "systemCyanColor"
+        "reference" : "unemphasizedSelectedTextColor"
       },
       "idiom" : "universal"
     }

@@ -3,7 +3,7 @@
     {
       "color" : {
         "platform" : "osx",
-        "reference" : "linkColor"
+        "reference" : "selectedContentBackgroundColor"
       },
       "idiom" : "universal"
     },
@@ -16,7 +16,7 @@
       ],
       "color" : {
         "platform" : "osx",
-        "reference" : "linkColor"
+        "reference" : "selectedContentBackgroundColor"
       },
       "idiom" : "universal"
     },
@@ -29,7 +29,7 @@
       ],
       "color" : {
         "platform" : "osx",
-        "reference" : "linkColor"
+        "reference" : "selectedContentBackgroundColor"
       },
       "idiom" : "universal"
     }

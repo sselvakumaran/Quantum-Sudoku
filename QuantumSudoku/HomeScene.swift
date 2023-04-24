@@ -2,31 +2,44 @@ import GameplayKit
 import SpriteKit
 import UIKit
 
+protocol QSceneDelegate: AnyObject {
+    func moveToGameScene(scene: HomeScene, game_code: Int)
+}
+
 class HomeScene: SKScene {
     
     // Declare any variables or properties here
     // var titlegradient: CGGradient
-    let textColor = UIColor(named: "NumberColor")!
+    let textColor = UIColor(named: "TextColor")!
     let titleLowColor = UIColor(named: "EntangledPurple")!
     let titleHighColor = UIColor(named: "EntangledGreen")!
-    let selectedColor = UIColor(named: "SelectedPrimaryBackground")!
-    let secondarySelectedColor = UIColor(named: "SelectedSecondaryBackground")!
+    let selectedColor = UIColor(named: "PrimarySelectedBackground")!
+    let selectedTextColor = UIColor(named: "PrimarySelectedTextColor")!
+    let secondarySelectedColor = UIColor(named: "SecondarySelectedBackground")!
+    let secondaryTextColor = UIColor(named: "SecondarySelectedTextColor")!
+    
+    weak var switchDelegate: QSceneDelegate?
+    
+    var newGameButton: ButtonNode? = nil
+    var resumeGameButton: ButtonNode? = nil
+    var gameScene: GameScene? = nil
     
     override func sceneDidLoad() {
+        gameScene = GameScene(size: self.size)
         // Set the background color of the SKScene to the dynamic color
         let newGamePlaceholder = self.childNode(withName: "NewGameButton")!
-        let newGameButton = ButtonNode(buttonRect:newGamePlaceholder.frame,
+        newGameButton = ButtonNode(buttonRect:newGamePlaceholder.frame,
                                        buttonColor:selectedColor,
                                        buttonLabel:"New Game",
-                                       labelColor:textColor)
+                                       labelColor:selectedTextColor)
         let resumeGamePlaceholder = self.childNode(withName: "ResumeSaveButton")!
-        let resumeGameButton = ButtonNode(buttonRect:resumeGamePlaceholder.frame,
+        resumeGameButton = ButtonNode(buttonRect:resumeGamePlaceholder.frame,
                                        buttonColor:secondarySelectedColor,
                                        buttonLabel:"Resume Saved",
-                                       labelColor:textColor)
+                                       labelColor:secondaryTextColor)
         removeChildren(in: [newGamePlaceholder, resumeGamePlaceholder])
-        addChild(newGameButton)
-        addChild(resumeGameButton)
+        addChild(newGameButton!)
+        addChild(resumeGameButton!)
         updateColorStyles()
         
     }
@@ -36,8 +49,20 @@ class HomeScene: SKScene {
         updateColorStyles()
     }
     
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        // Code to run when the screen is touched
+        for touch in touches {
+            let location = touch.location(in: self)
+            if newGameButton!.contains(location) {
+                print("registered touch")
+                print(switchDelegate != nil)
+                switchDelegate?.moveToGameScene(scene: self, game_code: 0)
+                /* self.view!.presentScene(gameScene!, transition: SKTransition.push(with: SKTransitionDirection.down, duration: 1)) */
+            }
+            if resumeGameButton!.contains(location) {
+                
+            }
+        }
     }
     
     override func update(_ currentTime: TimeInterval) {
@@ -63,5 +88,4 @@ class HomeScene: SKScene {
         (self.childNode(withName: "Title2") as! SKLabelNode).fontColor = textColor
     }
     // Add any additional functions or methods here
-    
 }

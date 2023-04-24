@@ -25,5 +25,4 @@ class GameScene: SKScene {
     }
     
     // Add any additional functions or methods here
-    
 }
