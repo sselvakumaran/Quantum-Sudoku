@@ -10,13 +10,13 @@ class HomeScene: SKScene {
     
     // Declare any variables or properties here
     // var titlegradient: CGGradient
-    let textColor = UIColor(named: "TextColor")!
-    let titleLowColor = UIColor(named: "EntangledPurple")!
-    let titleHighColor = UIColor(named: "EntangledGreen")!
-    let selectedColor = UIColor(named: "PrimarySelectedBackground")!
-    let selectedTextColor = UIColor(named: "PrimarySelectedTextColor")!
-    let secondarySelectedColor = UIColor(named: "SecondarySelectedBackground")!
-    let secondaryTextColor = UIColor(named: "SecondarySelectedTextColor")!
+    let textColor = Palette.text
+    let titleLowColor = Palette.titleLow
+    let titleHighColor = Palette.titleHigh
+    let selectedColor = Palette.selected
+    let selectedTextColor = Palette.selectedText
+    let secondarySelectedColor = Palette.secondarySelected
+    let secondaryTextColor = Palette.secondaryText
     
     weak var switchDelegate: QSceneDelegate?
     
@@ -65,6 +65,10 @@ class HomeScene: SKScene {
     
     override func update(_ currentTime: TimeInterval) {
         // Code to run on each frame of the game loop
+    }
+    
+    func adjustToFrame(frame: CGRect) {
+        // do stuff here
     }
     
     func updateColorStyles() {
