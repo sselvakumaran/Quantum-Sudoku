@@ -10,13 +10,13 @@ class HomeScene: SKScene {
     
     // Declare any variables or properties here
     // var titlegradient: CGGradient
-    let textColor = Palette.text
-    let titleLowColor = Palette.titleLow
-    let titleHighColor = Palette.titleHigh
-    let selectedColor = Palette.selected
-    let selectedTextColor = Palette.selectedText
-    let secondarySelectedColor = Palette.secondarySelected
-    let secondaryTextColor = Palette.secondaryText
+    let textColor = Palette.textSymbolNormal
+    let titleLowColor = Palette.gradient1[0]
+    let titleHighColor = Palette.gradient2[1]
+    let selectedColor = Palette.backgroundPrimary
+    let selectedTextColor = Palette.textSymbolNormal
+    let secondarySelectedColor = Palette.backgroundSecondary
+    let secondaryTextColor = Palette.textSymbolBold
     
     weak var switchDelegate: QSceneDelegate?
     
@@ -73,7 +73,7 @@ class HomeScene: SKScene {
     
     func updateColorStyles() {
         // background color
-        self.backgroundColor = UIColor(named: "Background")!
+        self.backgroundColor = UIColor(named: "BackgroundFrame")!
         
         // color gradient for Title1
         /*let labelNode = self.childNode(withName: "Title1") as! SKLabelNode

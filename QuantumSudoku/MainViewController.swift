@@ -31,7 +31,7 @@ class MainViewController: UIViewController, QSceneDelegate {
             
         if homeScene != nil {
             // Copy gameplay related content over to the scene
-            self.view.backgroundColor = Palette.background
+            self.view.backgroundColor = Palette.backgroundFrame
             //view.frame = self.view.safeAreaLayoutGuide.layoutFrame
             
             homeRoot.switchDelegate = self

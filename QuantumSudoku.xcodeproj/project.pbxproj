@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		741429A729E45C9A00D0861A /* sudoku3.png in Resources */ = {isa = PBXBuildFile; fileRef = 741429A629E45C9A00D0861A /* sudoku3.png */; };
+		7490E2A629FF26750081FE2F /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7490E2A529FF26750081FE2F /* Colors.xcassets */; };
 		7493182D29EC3C6E00CF49E8 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7493182C29EC3C6E00CF49E8 /* MainViewController.swift */; };
 		7493183329EC3D5A00CF49E8 /* HomeScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7493183229EC3D5A00CF49E8 /* HomeScene.swift */; };
 		7493183529EC3D6400CF49E8 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7493183429EC3D6400CF49E8 /* GameScene.swift */; };
@@ -19,7 +20,7 @@
 		74E7DB9629EF0E4200893E06 /* ButtonNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E7DB9529EF0E4200893E06 /* ButtonNode.swift */; };
 		74ED0FCF29E352E10091573B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74ED0FCE29E352E10091573B /* AppDelegate.swift */; };
 		74ED0FDA29E352E10091573B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74ED0FD829E352E10091573B /* Main.storyboard */; };
-		74ED0FDC29E352E20091573B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74ED0FDB29E352E20091573B /* Assets.xcassets */; };
+		74ED0FDC29E352E20091573B /* Symbols.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74ED0FDB29E352E20091573B /* Symbols.xcassets */; };
 		74ED0FDF29E352E20091573B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74ED0FDD29E352E20091573B /* LaunchScreen.storyboard */; };
 		74ED0FE929E352E20091573B /* QuantumSudokuTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74ED0FE829E352E20091573B /* QuantumSudokuTests.swift */; };
 		74ED0FF329E352E20091573B /* QuantumSudokuUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74ED0FF229E352E20091573B /* QuantumSudokuUITests.swift */; };
@@ -46,6 +47,7 @@
 
 /* Begin PBXFileReference section */
 		741429A629E45C9A00D0861A /* sudoku3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sudoku3.png; sourceTree = "<group>"; };
+		7490E2A529FF26750081FE2F /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		7493182C29EC3C6E00CF49E8 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		7493183229EC3D5A00CF49E8 /* HomeScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScene.swift; sourceTree = "<group>"; };
 		7493183429EC3D6400CF49E8 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
@@ -58,7 +60,7 @@
 		74ED0FCB29E352E10091573B /* QuantumSudoku.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuantumSudoku.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		74ED0FCE29E352E10091573B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		74ED0FD929E352E10091573B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		74ED0FDB29E352E20091573B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		74ED0FDB29E352E20091573B /* Symbols.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Symbols.xcassets; sourceTree = "<group>"; };
 		74ED0FDE29E352E20091573B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		74ED0FE429E352E20091573B /* QuantumSudokuTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuantumSudokuTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		74ED0FE829E352E20091573B /* QuantumSudokuTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuantumSudokuTests.swift; sourceTree = "<group>"; };
@@ -98,7 +100,8 @@
 			isa = PBXGroup;
 			children = (
 				741429A629E45C9A00D0861A /* sudoku3.png */,
-				74ED0FDB29E352E20091573B /* Assets.xcassets */,
+				74ED0FDB29E352E20091573B /* Symbols.xcassets */,
+				7490E2A529FF26750081FE2F /* Colors.xcassets */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -269,8 +272,9 @@
 			files = (
 				741429A729E45C9A00D0861A /* sudoku3.png in Resources */,
 				74D698C329EB709200EA7A74 /* HomeScene.sks in Resources */,
+				7490E2A629FF26750081FE2F /* Colors.xcassets in Resources */,
 				74ED0FDA29E352E10091573B /* Main.storyboard in Resources */,
-				74ED0FDC29E352E20091573B /* Assets.xcassets in Resources */,
+				74ED0FDC29E352E20091573B /* Symbols.xcassets in Resources */,
 				74BA9DE829F024FF00F1ACB4 /* GradientShader.fsh in Resources */,
 				74D698C529EB70AF00EA7A74 /* GameScene.sks in Resources */,
 				74ED0FDF29E352E20091573B /* LaunchScreen.storyboard in Resources */,

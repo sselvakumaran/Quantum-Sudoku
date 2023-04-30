@@ -20,14 +20,21 @@ struct UIDim2 {
 
 class Palette {
     
-    static let text = UIColor(named: "TextColor")!
-    static let titleLow = UIColor(named: "EntangledPurple")!
-    static let titleHigh = UIColor(named: "EntangledGreen")!
-    static let selected = UIColor(named: "PrimarySelectedBackground")!
-    static let selectedText = UIColor(named: "PrimarySelectedTextColor")!
-    static let secondarySelected = UIColor(named: "SecondarySelectedBackground")!
-    static let secondaryText = UIColor(named: "SecondarySelectedTextColor")!
-    static let background = UIColor(named: "Background")
+    static let backgroundFrame = UIColor(named: "BackgroundFrame")!
+    static let backgroundNormal = UIColor(named: "BackgroundNormal")!
+    static let backgroundPrimary = UIColor(named: "BackgroundPrimary")!
+    static let backgroundSecondary = UIColor(named: "BackgroundSecondary")!
+    static let backgroundTertiary = UIColor(named: "BackgroundTertiary")!
+    
+    static let textSymbolBold = UIColor(named: "TextSymbolBold")!
+    static let textSymbolLight = UIColor(named: "TextSymbolLight")!
+    static let textSymbolNormal = UIColor(named: "TextSymbolNormal")!
+    
+    static let gridStrongLine = UIColor(named: "GridStrongLine")!
+    static let gridWeakLine = UIColor(named: "GridWeakLine")!
+    
+    static let gradient1 = [UIColor(named: "Gradient1-1")!, UIColor(named: "Gradient1-2")!]
+    static let gradient2 = [UIColor(named: "Gradient2-1")!, UIColor(named: "Gradient2-2")!]
     
     //    static let homeComponentDims = ["Title1": UIDim2(0,0,0,0.4)
     //

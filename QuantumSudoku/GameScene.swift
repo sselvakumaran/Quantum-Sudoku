@@ -4,13 +4,13 @@ import UIKit
 
 class GameScene: SKScene {
     
-    let textColor = Palette.text
-    let titleLowColor = Palette.titleLow
-    let titleHighColor = Palette.titleHigh
-    let selectedColor = Palette.selected
-    let selectedTextColor = Palette.selectedText
-    let secondarySelectedColor = Palette.secondarySelected
-    let secondaryTextColor = Palette.secondaryText
+    let textColor = Palette.textSymbolNormal
+    let titleLowColor = Palette.gradient1[0]
+    let titleHighColor = Palette.gradient1[1]
+    let selectedColor = Palette.backgroundPrimary
+    let selectedTextColor = Palette.textSymbolNormal
+    let secondarySelectedColor = Palette.backgroundSecondary
+    let secondaryTextColor = Palette.textSymbolBold
     
     weak var switchDelegate: QSceneDelegate?
     
