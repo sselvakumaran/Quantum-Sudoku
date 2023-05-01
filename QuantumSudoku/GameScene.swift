@@ -14,17 +14,23 @@ class GameScene: SKScene {
     
     weak var switchDelegate: QSceneDelegate?
     
+    var homeButton: ButtonNode? = nil
+    var settingsButton: ButtonNode? = nil
+    var gridFrame: SKNode? = nil
+    var actionButtons: [ButtonNode]? = []
+    var numberButtons: [ButtonNode]? = []
+    
     override func sceneDidLoad() {
-        print("hallo")
+        
     }
     
     override func didMove(to view: SKView) {
-        print("did move")
+        
         // Code to run when the scene is first loaded into view
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        print("did touch")
+        
         // Code to run when the screen is touched
     }
     

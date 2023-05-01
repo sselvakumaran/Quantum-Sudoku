@@ -22,10 +22,8 @@ class HomeScene: SKScene {
     
     var newGameButton: ButtonNode? = nil
     var resumeGameButton: ButtonNode? = nil
-    var gameScene: GameScene? = nil
     
     override func sceneDidLoad() {
-        gameScene = GameScene(size: self.size)
         // Set the background color of the SKScene to the dynamic color
         let newGamePlaceholder = self.childNode(withName: "NewGameButton")!
         newGameButton = ButtonNode(buttonRect:newGamePlaceholder.frame,

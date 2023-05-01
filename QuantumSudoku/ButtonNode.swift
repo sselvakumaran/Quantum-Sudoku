@@ -4,10 +4,10 @@ class ButtonNode: SKNode {
     
     let buttonRect: CGRect
     let buttonColor: UIColor
-    let labelColor: UIColor
-    let symbolColor: UIColor
-    let buttonLabel: String
-    let buttonSymbol: UIImage
+    let labelColor: UIColor?
+    let symbolColor: UIColor?
+    let buttonLabel: String?
+    let buttonSymbol: String?
     
     
     init(buttonRect: CGRect = CGRect(x: -100, y: -40, width: 200, height: 80),
@@ -18,8 +18,7 @@ class ButtonNode: SKNode {
         self.buttonColor = buttonColor
         self.buttonLabel = buttonLabel
         self.labelColor = labelColor
-        self.symbolColor = Palette.textSymbolNormal
-        self.buttonSymbol = UIImage()
+        self.symbolColor = nil; self.buttonSymbol = nil
         super.init()
         
         // Create the rounded rectangle shape for the button
@@ -40,14 +39,13 @@ class ButtonNode: SKNode {
     
     init(buttonRect: CGRect = CGRect(x: -100, y: -40, width: 200, height: 80),
          buttonColor: UIColor,
-         buttonSymbol: UIImage,
+         buttonSymbol: String,
          symbolColor: UIColor) {
         self.buttonRect = buttonRect
         self.buttonColor = buttonColor
         self.buttonSymbol = buttonSymbol
         self.symbolColor = symbolColor
-        self.labelColor = Palette.textSymbolNormal
-        self.buttonLabel = ""
+        self.labelColor = nil; self.buttonLabel = nil
         super.init()
         
         // Create the rounded rectangle shape for the button
@@ -56,14 +54,12 @@ class ButtonNode: SKNode {
         buttonShape.strokeColor = UIColor.clear
         addChild(buttonShape)
         
-        // Create the label for the button
-        let labelNode = SKLabelNode(text: buttonLabel)
-        labelNode.fontName = "Helvetica"
-        labelNode.fontSize = 32
-        labelNode.fontColor = labelColor
-        labelNode.verticalAlignmentMode = .center
-        labelNode.position = CGPoint(x: buttonRect.midX, y: buttonRect.midY)
-        addChild(labelNode)
+        // Create the image
+        let symbolNode = SKSpriteNode(fileNamed: buttonSymbol)!
+        symbolNode.color = symbolColor
+        let length = (buttonRect.width > buttonRect.height ? buttonRect.height : buttonRect.width) * 0.75
+        symbolNode.size = CGSize(width: length, height: length)
+        addChild(symbolNode)
     }
     
     required init?(coder aDecoder: NSCoder) {
