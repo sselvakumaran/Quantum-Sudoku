@@ -55,19 +55,19 @@ class ButtonNode: SKNode {
         addChild(buttonShape)
         
         // Create the image
-        var image = UIImage(named: buttonSymbol)!
-        image = image.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
-        image = image.applyingSymbolConfiguration(UIImage.SymbolConfiguration(hierarchicalColor: .red))!
-        image = image.withTintColor(.red)
-        
-        let symbolNode = SKSpriteNode(texture: SKTexture(image: image), color: .red, size: CGSize())
-//        symbolNode.color = symbolColor
-//        symbolNode.blendMode = SKBlendMode.alpha
-//        symbolNode.colorBlendFactor =
-        let length = (buttonRect.width > buttonRect.height ? buttonRect.height : buttonRect.width) * 0.75
-        symbolNode.size = CGSize(width: length, height: length)
-        addChild(symbolNode)
+        var imageconfig = UIImage.SymbolConfiguration(weight: .regular)
+        imageconfig = imageconfig.applying(UIImage.SymbolConfiguration(paletteColors: [symbolColor, symbolColor, symbolColor]))
+        var image = UIImage(systemName: buttonSymbol, withConfiguration: imageconfig)!
+        image = image.withRenderingMode(.automatic)
+        let data = image.pngData()
+        let ratio = 0.5 * (buttonRect.width > buttonRect.height ?
+                            buttonRect.width / image.size.width :
+                            buttonRect.height / image.size.height)
+        let symbolNode = SKSpriteNode(texture: SKTexture(image: UIImage(data:data!)!), size: image.size)
+        symbolNode.size = CGSize(width: image.size.width * ratio, height: image.size.height * ratio)
         symbolNode.position = CGPoint(x: buttonRect.minX + buttonRect.height / 2, y: buttonRect.minY + buttonRect.width / 2)
+        addChild(symbolNode)
+        
     }
     
     required init?(coder aDecoder: NSCoder) {

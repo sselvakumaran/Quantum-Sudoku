@@ -11,6 +11,7 @@ class GameScene: SKScene {
     let selectedTextColor = Palette.textSymbolNormal
     let secondarySelectedColor = Palette.backgroundSecondary
     let secondaryTextColor = Palette.textSymbolBold
+    let backgroundFrame = Palette.backgroundFrame
     
     weak var switchDelegate: QSceneDelegate?
     
@@ -22,21 +23,38 @@ class GameScene: SKScene {
     var notesToggle: Bool = false
     var numberSelected: UInt8 = 0
     
-    let MISC_BUTTON_NAMES = ["Home, Settings"]
-    let ACTION_BUTTON_NAMES = ["Erase, Check, Undo, Notes1, Notes2"]
+    let MISC_BUTTON_NAMES = ["Home", "Settings"]
+    let ACTION_BUTTON_NAMES = ["Notes1", "Undo", "Check", "Erase", "Notes2"]
     let NUMBER_BUTTON_NAMES = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
     
+    let MISC_SYMBOL_NAMES = ["arrowshape.turn.up.backward.fill", "gearshape.fill"]
+    let ACTION_SYMBOL_NAMES = ["pencil.line", "arrow.uturn.backward", "checkmark.circle.badge.questionmark.fill", "eraser.fill", "pencil.line"]
+    
     override func sceneDidLoad() {
-        let erasePlaceholder = self.childNode(withName: "ActionButtons")!.childNode(withName: "Erase")!
-        let eraseButton = ButtonNode(buttonRect: erasePlaceholder.frame,
-                                     buttonColor: Palette.backgroundNormal,
-                                     buttonSymbol: "Erase",
-                                     symbolColor: secondaryTextColor)
-        print(secondaryTextColor)
-        addChild(eraseButton)
-//        for i in 0..<MISC_BUTTON_NAMES.count {
-//            miscButtons[i] = ButtonNode( buttonColor: <#T##UIColor#>, buttonLabel: <#T##String#>, labelColor: <#T##UIColor#>)
-//        }
+        var placeholderNode: SKNode = SKNode()
+        
+        self.backgroundColor = backgroundFrame
+        
+        for i in 0..<MISC_BUTTON_NAMES.count {
+            placeholderNode = self.childNode(withName: MISC_BUTTON_NAMES[i])!
+            miscButtons.insert(ButtonNode(buttonRect: placeholderNode.frame,
+                                        buttonColor: Palette.backgroundNormal,
+                                        buttonSymbol: MISC_SYMBOL_NAMES[i],
+                                          symbolColor: secondaryTextColor), at: i);
+            removeChildren(in: [placeholderNode])
+            addChild(miscButtons[i])
+        }
+        let parentPlaceholder = self.childNode(withName: "ActionButtons")!
+        for i in 0..<ACTION_BUTTON_NAMES.count {
+            placeholderNode = parentPlaceholder.childNode(withName: ACTION_BUTTON_NAMES[i])!
+            actionButtons.insert(ButtonNode(buttonRect: placeholderNode.frame,
+                                        buttonColor: Palette.backgroundNormal,
+                                        buttonSymbol: ACTION_SYMBOL_NAMES[i],
+                                        symbolColor: secondaryTextColor), at: i);
+            parentPlaceholder.removeChildren(in: [placeholderNode])
+            print(ACTION_BUTTON_NAMES[i])
+            addChild(actionButtons[i])
+          }
         
     }
     
