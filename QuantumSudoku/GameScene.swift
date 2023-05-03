@@ -14,13 +14,29 @@ class GameScene: SKScene {
     
     weak var switchDelegate: QSceneDelegate?
     
-    var homeButton: ButtonNode? = nil
-    var settingsButton: ButtonNode? = nil
     var gridFrame: SKNode? = nil
-    var actionButtons: [ButtonNode]? = []
-    var numberButtons: [ButtonNode]? = []
+    var miscButtons: [ButtonNode] = []
+    var actionButtons: [ButtonNode] = []
+    var numberButtons: [ButtonNode] = []
+    
+    var notesToggle: Bool = false
+    var numberSelected: UInt8 = 0
+    
+    let MISC_BUTTON_NAMES = ["Home, Settings"]
+    let ACTION_BUTTON_NAMES = ["Erase, Check, Undo, Notes1, Notes2"]
+    let NUMBER_BUTTON_NAMES = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
     
     override func sceneDidLoad() {
+        let erasePlaceholder = self.childNode(withName: "ActionButtons")!.childNode(withName: "Erase")!
+        let eraseButton = ButtonNode(buttonRect: erasePlaceholder.frame,
+                                     buttonColor: Palette.backgroundNormal,
+                                     buttonSymbol: "Erase",
+                                     symbolColor: secondaryTextColor)
+        print(secondaryTextColor)
+        addChild(eraseButton)
+//        for i in 0..<MISC_BUTTON_NAMES.count {
+//            miscButtons[i] = ButtonNode( buttonColor: <#T##UIColor#>, buttonLabel: <#T##String#>, labelColor: <#T##UIColor#>)
+//        }
         
     }
     

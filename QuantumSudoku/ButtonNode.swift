@@ -1,5 +1,5 @@
 import SpriteKit
-
+import UIKit
 class ButtonNode: SKNode {
     
     let buttonRect: CGRect
@@ -55,11 +55,19 @@ class ButtonNode: SKNode {
         addChild(buttonShape)
         
         // Create the image
-        let symbolNode = SKSpriteNode(fileNamed: buttonSymbol)!
-        symbolNode.color = symbolColor
+        var image = UIImage(named: buttonSymbol)!
+        image = image.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
+        image = image.applyingSymbolConfiguration(UIImage.SymbolConfiguration(hierarchicalColor: .red))!
+        image = image.withTintColor(.red)
+        
+        let symbolNode = SKSpriteNode(texture: SKTexture(image: image), color: .red, size: CGSize())
+//        symbolNode.color = symbolColor
+//        symbolNode.blendMode = SKBlendMode.alpha
+//        symbolNode.colorBlendFactor =
         let length = (buttonRect.width > buttonRect.height ? buttonRect.height : buttonRect.width) * 0.75
         symbolNode.size = CGSize(width: length, height: length)
         addChild(symbolNode)
+        symbolNode.position = CGPoint(x: buttonRect.minX + buttonRect.height / 2, y: buttonRect.minY + buttonRect.width / 2)
     }
     
     required init?(coder aDecoder: NSCoder) {
