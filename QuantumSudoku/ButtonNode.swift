@@ -9,6 +9,7 @@ class ButtonNode: SKNode {
     let buttonLabel: String?
     let buttonSymbol: String?
     
+    var action: (() -> Void)?
     
     init(buttonRect: CGRect = CGRect(x: -100, y: -40, width: 200, height: 80),
          buttonColor: UIColor,
@@ -30,11 +31,13 @@ class ButtonNode: SKNode {
         // Create the label for the button
         let labelNode = SKLabelNode(text: buttonLabel)
         labelNode.fontName = "Helvetica"
-        labelNode.fontSize = 32
+        labelNode.fontSize = buttonRect.height / 2.5
         labelNode.fontColor = labelColor
         labelNode.verticalAlignmentMode = .center
         labelNode.position = CGPoint(x: buttonRect.midX, y: buttonRect.midY)
         addChild(labelNode)
+        
+        self.isUserInteractionEnabled = true
     }
     
     init(buttonRect: CGRect = CGRect(x: -100, y: -40, width: 200, height: 80),
@@ -68,6 +71,17 @@ class ButtonNode: SKNode {
         symbolNode.position = CGPoint(x: buttonRect.minX + buttonRect.height / 2, y: buttonRect.minY + buttonRect.width / 2)
         addChild(symbolNode)
         
+        self.isUserInteractionEnabled = true
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        print("heehee")
+        guard !isHidden, let touch = touches.first else { return }
+        let touchLocation = touch.location(in: self)
+        print("woohoo")
+        if self.contains(touchLocation) {
+            action!()
+        }
     }
     
     required init?(coder aDecoder: NSCoder) {

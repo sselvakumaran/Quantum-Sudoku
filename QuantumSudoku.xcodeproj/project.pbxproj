@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		741429A729E45C9A00D0861A /* sudoku3.png in Resources */ = {isa = PBXBuildFile; fileRef = 741429A629E45C9A00D0861A /* sudoku3.png */; };
+		74417CA62A03F31F003562B2 /* GridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74417CA52A03F31F003562B2 /* GridNode.swift */; };
 		7490E2A629FF26750081FE2F /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7490E2A529FF26750081FE2F /* Colors.xcassets */; };
 		7493182D29EC3C6E00CF49E8 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7493182C29EC3C6E00CF49E8 /* MainViewController.swift */; };
 		7493183329EC3D5A00CF49E8 /* HomeScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7493183229EC3D5A00CF49E8 /* HomeScene.swift */; };
@@ -47,6 +48,7 @@
 
 /* Begin PBXFileReference section */
 		741429A629E45C9A00D0861A /* sudoku3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sudoku3.png; sourceTree = "<group>"; };
+		74417CA52A03F31F003562B2 /* GridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridNode.swift; sourceTree = "<group>"; };
 		7490E2A529FF26750081FE2F /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		7493182C29EC3C6E00CF49E8 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		7493183229EC3D5A00CF49E8 /* HomeScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScene.swift; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 				74A7E45D29F70580004F31D6 /* Palette.swift */,
 				74F6674729F8461D001908F8 /* backend.h */,
 				74F6674829F8461D001908F8 /* backend.c */,
+				74417CA52A03F31F003562B2 /* GridNode.swift */,
 			);
 			path = QuantumSudoku;
 			sourceTree = "<group>";
@@ -303,6 +306,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7493183729EC553B00CF49E8 /* QGradient.swift in Sources */,
+				74417CA62A03F31F003562B2 /* GridNode.swift in Sources */,
 				7493183329EC3D5A00CF49E8 /* HomeScene.swift in Sources */,
 				74F6674929F8461D001908F8 /* backend.c in Sources */,
 				7493182D29EC3C6E00CF49E8 /* MainViewController.swift in Sources */,

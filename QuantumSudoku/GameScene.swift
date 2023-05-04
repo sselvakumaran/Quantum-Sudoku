@@ -54,7 +54,7 @@ class GameScene: SKScene {
             parentPlaceholder.removeChildren(in: [placeholderNode])
             print(ACTION_BUTTON_NAMES[i])
             addChild(actionButtons[i])
-          }
+        }
         
     }
     

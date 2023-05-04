@@ -24,12 +24,17 @@ class HomeScene: SKScene {
     var resumeGameButton: ButtonNode? = nil
     
     override func sceneDidLoad() {
+        self.isUserInteractionEnabled = true
         // Set the background color of the SKScene to the dynamic color
         let newGamePlaceholder = self.childNode(withName: "NewGameButton")!
         newGameButton = ButtonNode(buttonRect:newGamePlaceholder.frame,
                                        buttonColor:selectedColor,
                                        buttonLabel:"New Game",
                                        labelColor:selectedTextColor)
+        newGameButton!.action = {
+            self.switchDelegate!.moveToGameScene(scene: self, game_code: 0)
+        }
+        
         let resumeGamePlaceholder = self.childNode(withName: "ResumeSaveButton")!
         resumeGameButton = ButtonNode(buttonRect:resumeGamePlaceholder.frame,
                                        buttonColor:secondarySelectedColor,
@@ -49,16 +54,7 @@ class HomeScene: SKScene {
     
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for touch in touches {
-            let location = touch.location(in: self)
-            if newGameButton!.contains(location) {
-                switchDelegate?.moveToGameScene(scene: self, game_code: 0)
-                /* self.view!.presentScene(gameScene!, transition: SKTransition.push(with: SKTransitionDirection.down, duration: 1)) */
-            }
-            if resumeGameButton!.contains(location) {
-                
-            }
-        }
+        
     }
     
     override func update(_ currentTime: TimeInterval) {
@@ -71,7 +67,8 @@ class HomeScene: SKScene {
     
     func updateColorStyles() {
         // background color
-        self.backgroundColor = UIColor(named: "BackgroundFrame")!
+        
+        
         
         // color gradient for Title1
         /*let labelNode = self.childNode(withName: "Title1") as! SKLabelNode
