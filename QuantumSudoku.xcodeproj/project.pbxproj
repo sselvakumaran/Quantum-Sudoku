@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		740514902A05910D0084B374 /* qsudoku_backend.c in Sources */ = {isa = PBXBuildFile; fileRef = 7405148F2A05910D0084B374 /* qsudoku_backend.c */; };
 		741429A729E45C9A00D0861A /* sudoku3.png in Resources */ = {isa = PBXBuildFile; fileRef = 741429A629E45C9A00D0861A /* sudoku3.png */; };
 		74417CA62A03F31F003562B2 /* GridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74417CA52A03F31F003562B2 /* GridNode.swift */; };
 		7490E2A629FF26750081FE2F /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7490E2A529FF26750081FE2F /* Colors.xcassets */; };
@@ -26,7 +27,6 @@
 		74ED0FE929E352E20091573B /* QuantumSudokuTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74ED0FE829E352E20091573B /* QuantumSudokuTests.swift */; };
 		74ED0FF329E352E20091573B /* QuantumSudokuUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74ED0FF229E352E20091573B /* QuantumSudokuUITests.swift */; };
 		74ED0FF529E352E20091573B /* QuantumSudokuUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74ED0FF429E352E20091573B /* QuantumSudokuUITestsLaunchTests.swift */; };
-		74F6674929F8461D001908F8 /* backend.c in Sources */ = {isa = PBXBuildFile; fileRef = 74F6674829F8461D001908F8 /* backend.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +47,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7405148D2A05910D0084B374 /* QuantumSudoku-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "QuantumSudoku-Bridging-Header.h"; sourceTree = "<group>"; };
+		7405148E2A05910D0084B374 /* qsudoku_backend.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = qsudoku_backend.h; sourceTree = "<group>"; };
+		7405148F2A05910D0084B374 /* qsudoku_backend.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = qsudoku_backend.c; sourceTree = "<group>"; };
 		741429A629E45C9A00D0861A /* sudoku3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sudoku3.png; sourceTree = "<group>"; };
 		74417CA52A03F31F003562B2 /* GridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridNode.swift; sourceTree = "<group>"; };
 		7490E2A529FF26750081FE2F /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
@@ -69,8 +72,6 @@
 		74ED0FEE29E352E20091573B /* QuantumSudokuUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuantumSudokuUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		74ED0FF229E352E20091573B /* QuantumSudokuUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuantumSudokuUITests.swift; sourceTree = "<group>"; };
 		74ED0FF429E352E20091573B /* QuantumSudokuUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuantumSudokuUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		74F6674729F8461D001908F8 /* backend.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = backend.h; sourceTree = "<group>"; };
-		74F6674829F8461D001908F8 /* backend.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = backend.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,9 +145,10 @@
 				74E7DB9529EF0E4200893E06 /* ButtonNode.swift */,
 				74BA9DE729F024FF00F1ACB4 /* GradientShader.fsh */,
 				74A7E45D29F70580004F31D6 /* Palette.swift */,
-				74F6674729F8461D001908F8 /* backend.h */,
-				74F6674829F8461D001908F8 /* backend.c */,
 				74417CA52A03F31F003562B2 /* GridNode.swift */,
+				7405148E2A05910D0084B374 /* qsudoku_backend.h */,
+				7405148F2A05910D0084B374 /* qsudoku_backend.c */,
+				7405148D2A05910D0084B374 /* QuantumSudoku-Bridging-Header.h */,
 			);
 			path = QuantumSudoku;
 			sourceTree = "<group>";
@@ -308,10 +310,10 @@
 				7493183729EC553B00CF49E8 /* QGradient.swift in Sources */,
 				74417CA62A03F31F003562B2 /* GridNode.swift in Sources */,
 				7493183329EC3D5A00CF49E8 /* HomeScene.swift in Sources */,
-				74F6674929F8461D001908F8 /* backend.c in Sources */,
 				7493182D29EC3C6E00CF49E8 /* MainViewController.swift in Sources */,
 				7493183529EC3D6400CF49E8 /* GameScene.swift in Sources */,
 				74ED0FCF29E352E10091573B /* AppDelegate.swift in Sources */,
+				740514902A05910D0084B374 /* qsudoku_backend.c in Sources */,
 				74E7DB9629EF0E4200893E06 /* ButtonNode.swift in Sources */,
 				74A7E45E29F70580004F31D6 /* Palette.swift in Sources */,
 			);
@@ -508,7 +510,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "Sriman-Selvakumaran.QuantumSudoku";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "QuantumSudoku/QuantumSudoku-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -540,7 +542,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "Sriman-Selvakumaran.QuantumSudoku";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "QuantumSudoku/QuantumSudoku-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
