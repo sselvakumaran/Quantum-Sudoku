@@ -75,10 +75,8 @@ class ButtonNode: SKNode {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        print("heehee")
         guard !isHidden, let touch = touches.first else { return }
         let touchLocation = touch.location(in: self)
-        print("woohoo")
         if self.contains(touchLocation) {
             action!()
         }

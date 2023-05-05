@@ -15,7 +15,7 @@ class GameScene: SKScene {
     
     weak var switchDelegate: QSceneDelegate?
     
-    var gridFrame: SKNode? = nil
+    var gridFrame: GridNode? = nil
     var miscButtons: [ButtonNode] = []
     var actionButtons: [ButtonNode] = []
     var numberButtons: [ButtonNode] = []
@@ -52,10 +52,11 @@ class GameScene: SKScene {
                                         buttonSymbol: ACTION_SYMBOL_NAMES[i],
                                         symbolColor: secondaryTextColor), at: i);
             parentPlaceholder.removeChildren(in: [placeholderNode])
-            print(ACTION_BUTTON_NAMES[i])
             addChild(actionButtons[i])
         }
         
+        gridFrame = GridNode(self.childNode(withName: "GridFrame")!.frame)
+        addChild(gridFrame!)
     }
     
     override func didMove(to view: SKView) {

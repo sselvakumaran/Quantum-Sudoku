@@ -10,6 +10,7 @@ class HomeScene: SKScene {
     
     // Declare any variables or properties here
     // var titlegradient: CGGradient
+    let backgroundFrame = Palette.backgroundFrame
     let textColor = Palette.textSymbolNormal
     let titleLowColor = Palette.gradient1[0]
     let titleHighColor = Palette.gradient2[1]
@@ -67,7 +68,7 @@ class HomeScene: SKScene {
     
     func updateColorStyles() {
         // background color
-        
+        self.backgroundColor = backgroundFrame
         
         
         // color gradient for Title1
