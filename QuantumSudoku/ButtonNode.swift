@@ -30,7 +30,7 @@ class ButtonNode: SKNode {
         
         // Create the label for the button
         let labelNode = SKLabelNode(text: buttonLabel)
-        labelNode.fontName = "Helvetica"
+        labelNode.fontName = Palette.mainTextFont
         labelNode.fontSize = buttonRect.height / 2.5
         labelNode.fontColor = labelColor
         labelNode.verticalAlignmentMode = .center

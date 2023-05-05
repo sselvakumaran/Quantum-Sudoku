@@ -1,24 +1,39 @@
 import SpriteKit
 import UIKit
+
+struct GridPos {
+    var x: Int8 = 0
+    var y: Int8 = 0
+    
+    init(_ x: Int8, _ y: Int8) {
+        self.x = x
+        self.y = y
+    }
+}
+
 class GridNode: SKNode {
     
     let THICK_LINE_WIDTH = 6
     let THIN_LINE_WIDTH = 4
     let THICK_LINE_COLOR = Palette.gridStrongLine
     let THIN_LINE_COLOR = Palette.gridWeakLine
-    let SELECTED_TEXT_COLOR = Palette.textSymbolBold
-    let LABEL_TEXT_COLOR = Palette.textSymbolNormal
+    let LABEL_GIVEN_COLOR = Palette.textSymbolNormal
+    let LABEL_PLACED_COLOR = Palette.textSymbolBold
     let NOTES_TEXT_COLOR = Palette.textSymbolLight
     let PRIMARY_SELECTED_COLOR = Palette.backgroundPrimary
     let SECONDARY_SELECTED_COLOR = Palette.backgroundSecondary
     let TERTIARY_SELECTED_COLOR = Palette.backgroundTertiary
     
+    var gridFrame: CGRect = CGRect()
     // [ROW][COLUMN]
     var labels: [[SKLabelNode]]
     // [HORIZONTAL, VERTICAL]
     var gridLines: [[SKShapeNode]]
     
+    var selectedCell: GridPos = GridPos(0,0)
+    
     init(_ gridFrame: CGRect) {
+        self.gridFrame = gridFrame
         labels = Array(repeating: Array(repeating: SKLabelNode(), count: 9), count: 9)
         gridLines = [Array(repeating: SKShapeNode(), count: 8), Array(repeating: SKShapeNode(), count: 8)]
         
@@ -31,6 +46,7 @@ class GridNode: SKNode {
                                                 width: gridFrame.width,
                                                 height: (CGFloat) (i % 3 == 2 ? THICK_LINE_WIDTH : THIN_LINE_WIDTH)))
             line.fillColor = i % 3 == 2 ? THICK_LINE_COLOR : THIN_LINE_COLOR
+            line.zPosition = i % 3 == 2 ? 3 : 1
             gridLines[0][i] = line
             addChild(line)
         }
@@ -42,6 +58,7 @@ class GridNode: SKNode {
                                                 width: (CGFloat) (i % 3 == 2 ? THICK_LINE_WIDTH : THIN_LINE_WIDTH),
                                                 height: gridFrame.height))
             line.fillColor = i % 3 == 2 ? THICK_LINE_COLOR : THIN_LINE_COLOR
+            line.zPosition = i % 3 == 2 ? 4 : 2
             gridLines[1][i] = line
             addChild(line)
         }
@@ -54,14 +71,28 @@ class GridNode: SKNode {
                 label.verticalAlignmentMode = SKLabelVerticalAlignmentMode.center
                 label.position = CGPoint(x: gridFrame.origin.x + ((CGFloat) (c) + 0.5) * gridFrame.width / 9,
                                          y: gridFrame.origin.y + ((CGFloat) (r) + 0.5) * gridFrame.height / 9)
-                label.fontColor = LABEL_TEXT_COLOR
-                label.fontName = "Menlo"
+                label.fontColor = LABEL_GIVEN_COLOR
+                label.fontName = Palette.gridNumberFont
                 addChild(label)
             }
         }
         
+        self.isUserInteractionEnabled = true
     }
     
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        guard !isHidden, let touch = touches.first else { return }
+        let touchLocation = touch.location(in: self)
+        if self.contains(touchLocation) {
+            let column = Int8((touchLocation.x - self.gridFrame.origin.x) * 9.0 / self.gridFrame.width)
+            let row = Int8((touchLocation.y - self.gridFrame.origin.y) * 9.0 / self.gridFrame.height)
+            
+            self.selectedCell = GridPos(column, row)
+            
+            
+        }
+    }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

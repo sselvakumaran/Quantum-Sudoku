@@ -36,22 +36,6 @@ class Palette {
     static let gradient1 = [UIColor(named: "Gradient1-1")!, UIColor(named: "Gradient1-2")!]
     static let gradient2 = [UIColor(named: "Gradient2-1")!, UIColor(named: "Gradient2-2")!]
     
-    //    static let homeComponentDims = ["Title1": UIDim2(0,0,0,0.4)
-    //
-    //    ]
-    
-    
-    //    static func getFrameOfHomeComponent(_ name: String,_ frame:CGRect) {
-    //        switch(name) {
-    //        case "Title1":
-    //            break
-    //        default:
-    //            break
-    //        }
-    //    }
-    
-    
-    
-    
-    
+    static let mainTextFont = "Helvetica"
+    static let gridNumberFont = "Menlo"
 }
