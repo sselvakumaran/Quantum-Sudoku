@@ -21,7 +21,6 @@ class GameScene: SKScene {
     var numberButtons: [ButtonNode] = []
     
     var notesToggle: Bool = false
-    var numberSelected: UInt8 = 0
     
     let MISC_BUTTON_NAMES = ["Home", "Settings"]
     let ACTION_BUTTON_NAMES = ["Notes1", "Undo", "Check", "Erase", "Notes2"]
@@ -44,7 +43,7 @@ class GameScene: SKScene {
             removeChildren(in: [placeholderNode])
             addChild(miscButtons[i])
         }
-        let parentPlaceholder = self.childNode(withName: "ActionButtons")!
+        var parentPlaceholder = self.childNode(withName: "ActionButtons")!
         for i in 0..<ACTION_BUTTON_NAMES.count {
             placeholderNode = parentPlaceholder.childNode(withName: ACTION_BUTTON_NAMES[i])!
             actionButtons.insert(ButtonNode(buttonRect: placeholderNode.frame,
@@ -55,8 +54,52 @@ class GameScene: SKScene {
             addChild(actionButtons[i])
         }
         
+        parentPlaceholder = self.childNode(withName: "NumberButtons")!
+        for i in 0..<NUMBER_BUTTON_NAMES.count {
+            placeholderNode = parentPlaceholder.childNode(withName: NUMBER_BUTTON_NAMES[i])!
+            numberButtons.insert(ButtonNode(buttonRect: placeholderNode.frame,
+                                            buttonColor: Palette.backgroundNormal,
+                                            number: i + 1,
+                                            labelColor: secondaryTextColor), at: i)
+            parentPlaceholder.removeChildren(in: [placeholderNode])
+            addChild(numberButtons[i])
+        }
+        
         gridFrame = GridNode(self.childNode(withName: "GridFrame")!.frame)
         addChild(gridFrame!)
+        
+        // DEFINING BUTTON FUNCTIONS
+        
+        // BACK
+        
+        // SETTINGS
+        
+        // NOTES
+        actionButtons[0].action = {
+            self.notesToggle = !self.notesToggle
+            self.actionButtons[0]
+        }
+        actionButtons[4].action = actionButtons[0].action
+        // UNDO
+        
+        // CHECK
+        
+        // ERASE
+        actionButtons[3].action = {
+            if self.gridFrame != nil {
+                self.gridFrame!.placeNumber(0)
+            }
+        }
+        
+        // NUMBER BUTTONS
+        for i in 0..<NUMBER_BUTTON_NAMES.count {
+            numberButtons[i].action = {
+                if self.gridFrame != nil {
+                    self.gridFrame!.placeNumber(i + 1)
+                }
+            }
+        }
+        
     }
     
     override func didMove(to view: SKView) {

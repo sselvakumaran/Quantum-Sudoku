@@ -2,30 +2,24 @@ import SpriteKit
 import UIKit
 class ButtonNode: SKNode {
     
-    let buttonRect: CGRect
-    let buttonColor: UIColor
-    let labelColor: UIColor?
-    let symbolColor: UIColor?
-    let buttonLabel: String?
-    let buttonSymbol: String?
+    var background: SKShapeNode? = nil
+    var contentLabel: SKLabelNode? = nil
+    var contentSymbol: SKSpriteNode? = nil
     
     var action: (() -> Void)?
     
+    // making a button with normal text
     init(buttonRect: CGRect = CGRect(x: -100, y: -40, width: 200, height: 80),
          buttonColor: UIColor,
          buttonLabel: String,
          labelColor: UIColor) {
-        self.buttonRect = buttonRect
-        self.buttonColor = buttonColor
-        self.buttonLabel = buttonLabel
-        self.labelColor = labelColor
-        self.symbolColor = nil; self.buttonSymbol = nil
         super.init()
         
         // Create the rounded rectangle shape for the button
         let buttonShape = SKShapeNode(rect: buttonRect, cornerRadius: 20)
         buttonShape.fillColor = buttonColor
         buttonShape.strokeColor = UIColor.clear
+        buttonShape.name = "Background"
         addChild(buttonShape)
         
         // Create the label for the button
@@ -35,33 +29,32 @@ class ButtonNode: SKNode {
         labelNode.fontColor = labelColor
         labelNode.verticalAlignmentMode = .center
         labelNode.position = CGPoint(x: buttonRect.midX, y: buttonRect.midY)
+        labelNode.name = "Content"
+        contentLabel = labelNode
         addChild(labelNode)
         
         self.isUserInteractionEnabled = true
     }
     
+    // making a button with a symbol in it
     init(buttonRect: CGRect = CGRect(x: -100, y: -40, width: 200, height: 80),
          buttonColor: UIColor,
          buttonSymbol: String,
          symbolColor: UIColor) {
-        self.buttonRect = buttonRect
-        self.buttonColor = buttonColor
-        self.buttonSymbol = buttonSymbol
-        self.symbolColor = symbolColor
-        self.labelColor = nil; self.buttonLabel = nil
         super.init()
         
         // Create the rounded rectangle shape for the button
         let buttonShape = SKShapeNode(rect: buttonRect, cornerRadius: 20)
         buttonShape.fillColor = buttonColor
         buttonShape.strokeColor = UIColor.clear
+        buttonShape.name = "Background"
+        background = buttonShape
         addChild(buttonShape)
         
         // Create the image
         var imageconfig = UIImage.SymbolConfiguration(weight: .regular)
         imageconfig = imageconfig.applying(UIImage.SymbolConfiguration(paletteColors: [symbolColor, symbolColor, symbolColor]))
         var image = UIImage(systemName: buttonSymbol, withConfiguration: imageconfig)!
-        image = image.withRenderingMode(.automatic)
         let data = image.pngData()
         let ratio = 0.5 * (buttonRect.width > buttonRect.height ?
                             buttonRect.width / image.size.width :
@@ -69,7 +62,38 @@ class ButtonNode: SKNode {
         let symbolNode = SKSpriteNode(texture: SKTexture(image: UIImage(data:data!)!), size: image.size)
         symbolNode.size = CGSize(width: image.size.width * ratio, height: image.size.height * ratio)
         symbolNode.position = CGPoint(x: buttonRect.minX + buttonRect.height / 2, y: buttonRect.minY + buttonRect.width / 2)
+        symbolNode.name = "ContentSymbol"
+        contentSymbol = symbolNode
         addChild(symbolNode)
+        
+        self.isUserInteractionEnabled = true
+    }
+    
+    // making a button with a single number
+    init(buttonRect: CGRect = CGRect(x: -100, y: -40, width: 200, height: 80),
+         buttonColor: UIColor,
+         number: Int,
+         labelColor: UIColor) {
+        super.init()
+        
+        // Create the rounded rectangle shape for the button
+        let buttonShape = SKShapeNode(rect: buttonRect, cornerRadius: 20)
+        buttonShape.fillColor = buttonColor
+        buttonShape.strokeColor = UIColor.clear
+        buttonShape.name = "Background"
+        background = buttonShape
+        addChild(buttonShape)
+        
+        // Create the label for the button
+        let labelNode = SKLabelNode(text: "\(number)")
+        labelNode.fontName = Palette.gridNumberFont
+        labelNode.fontSize = buttonRect.height
+        labelNode.fontColor = labelColor
+        labelNode.verticalAlignmentMode = .center
+        labelNode.position = CGPoint(x: buttonRect.midX, y: buttonRect.midY)
+        labelNode.name = "Content"
+        contentLabel = labelNode
+        addChild(labelNode)
         
         self.isUserInteractionEnabled = true
     }
@@ -81,6 +105,17 @@ class ButtonNode: SKNode {
             action!()
         }
     }
+    
+    func changeColors(buttonColor: UIColor, contentColor: UIColor) {
+        self.background!.fillColor = buttonColor
+        if (contentLabel != nil) {
+            contentLabel!.fontColor = contentColor
+        }
+        if (contentSymbol != nil) {
+            contentSymbol!.color = contentColor
+        }
+    }
+    
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

@@ -2,12 +2,12 @@ import SpriteKit
 import UIKit
 
 struct GridPos {
-    var x: Int = 0
-    var y: Int = 0
+    var row: Int = 0
+    var column: Int = 0
     
-    init(_ x: Int, _ y: Int) {
-        self.x = x
-        self.y = y
+    init(_ row: Int, _ column: Int) {
+        self.row = row
+        self.column = column
     }
 }
 
@@ -107,15 +107,19 @@ class GridNode: SKNode {
         if self.contains(touchLocation) {
             let column = Int((touchLocation.x - self.gridFrame.minX) * 9.0 / self.gridFrame.width)
             let row = Int((self.gridFrame.maxY - touchLocation.y) * 9.0 / self.gridFrame.height)
-            selectedCell = GridPos(column, row)
+            selectedCell = GridPos(row, column)
             var color: UIColor = UNSELECTED_GRID_COLOR
             for r in 0..<cellBackgrounds.count {
                 for c in 0..<cellBackgrounds[0].count {
-                    switch (c == selectedCell.x ? 1 : 0) +
-                        (r == selectedCell.y ? 2 : 0) +
-                        (r / 3 == selectedCell.y / 3 && c / 3 == selectedCell.x / 3 ? 4 : 0) {
-                    case 7: // selected cell
+                    let num_t = get_number(Int32(row), Int32(column))
+                    switch (c == selectedCell.column ? 1 : 0) +
+                        (r == selectedCell.row ? 2 : 0) +
+                        (r / 3 == selectedCell.row / 3 && c / 3 == selectedCell.column / 3 ? 4 : 0) +
+                        (num_t != 0 && get_number(Int32(r), Int32(c)) == num_t ? 8 : 0) {
+                    case 7, 15: // selected cell
                         color = PRIMARY_SELECTED_COLOR
+                    case 8..<15:
+                        color = TERTIARY_SELECTED_COLOR
                     case 0:
                         color = UNSELECTED_GRID_COLOR
                     default:
@@ -127,7 +131,12 @@ class GridNode: SKNode {
         }
     }
     
-    
+    func placeNumber(_ number: Int) {
+        let num = place_number(Int32(selectedCell.row), Int32(selectedCell.column), Int32(number))
+        if num != 0 {
+            labels[selectedCell.row][selectedCell.column].text = "\(num)"
+        }
+    }
     
     
     required init?(coder aDecoder: NSCoder) {

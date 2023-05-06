@@ -51,27 +51,27 @@ void make_puzzle(int difficulty) {
         int i, j;
         for (i = 0; i < 9; i++)
             for (j = 0; j < 9; j++)
-                grid[8*i + j]= 16*testpuzzleanswers[i][j] + testpuzzlegiven[i][j];
+                grid[9*i + j]= 16*testpuzzleanswers[i][j] + testpuzzlegiven[i][j];
     }
 }
 
 int place_number(int row, int column, int number) {
-    int8_t cell = grid[8*row + column];
+    int8_t cell = grid[9*row + column];
     if ((cell & 0xf) != 10)
         cell = number + (cell & 0xf0);
     else
         return 0;
     grid[8*row + column] = cell;
-    return 0;
+    return cell & 0xf;
 }
 
 int is_cell_given(int row, int column) {
-    int8_t cell = grid[8*row + column];
+    int8_t cell = grid[9*row + column];
     return (cell & 0xf) == 10;
 }
 
 int get_number(int row, int column) {
-    int8_t cell = grid[8*row + column];
+    int8_t cell = grid[9*row + column];
     return (cell & 0xf) == 10 ? (cell & 0xf0) >> 4 : cell & 0xf;
 }
 
