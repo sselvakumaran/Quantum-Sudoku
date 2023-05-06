@@ -32,6 +32,8 @@ class GridNode: SKNode {
     var labels: [[SKLabelNode]]
     var cellBackgrounds: [[SKSpriteNode]]
     var entangledCellFrames: [[SKShapeNode]]
+    var systemColors: [UIColor] = []
+    
     // [HORIZONTAL, VERTICAL]
     var gridLines: [[SKShapeNode]]
     
@@ -104,6 +106,7 @@ class GridNode: SKNode {
         }
         let num_systems = get_num_entangled_systems()
         entangledCellFrames = Array(repeating: [], count: Int(num_systems))
+        systemColors = Palette.gradientColors.shuffled()
         for system in 0..<num_systems {
             let num_cells = get_num_entangled_in_system(system)
             entangledCellFrames[Int(system)] = Array(repeating: SKShapeNode(), count: Int(num_cells))
@@ -116,9 +119,9 @@ class GridNode: SKNode {
                                                               height: bgframe.height + THIN_LINE_WIDTH - 2 * FRAME_THICKNESS),
                                                  cornerRadius: 0)
                 entangledFrame.fillColor = UIColor.clear
-                entangledFrame.strokeColor = GRADIENT_COLORS[Int(system)]
+                entangledFrame.strokeColor = Palette.gradientMix([systemColors[Int(system)], UNSELECTED_GRID_COLOR], Double(system))
                 entangledFrame.lineCap = CGLineCap.square
-                entangledFrame.lineWidth = FRAME_THICKNESS
+                entangledFrame.glowWidth = FRAME_THICKNESS
                 entangledFrame.zPosition = 1
                 entangledCellFrames[Int(system)][Int(cell)] = entangledFrame
                 addChild(entangledCellFrames[Int(system)][Int(cell)])
@@ -166,6 +169,16 @@ class GridNode: SKNode {
         }
     }
     
+    func updateGrid(_ time: Double) {
+        let num_systems = get_num_entangled_systems()
+        for system in 0..<num_systems {
+            let num_cells = get_num_entangled_in_system(system)
+            for cell in 0..<num_cells {
+                entangledCellFrames[Int(system)][Int(cell)].strokeColor = Palette.gradientMix([systemColors[Int(system)], UNSELECTED_GRID_COLOR],
+                                                                                              Palette.timeToCosineLerp(time + Double(system)))
+            }
+        }
+    }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

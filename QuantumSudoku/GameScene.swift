@@ -1,6 +1,7 @@
 import GameplayKit
 import SpriteKit
 import UIKit
+import ClockKit
 
 class GameScene: SKScene {
     
@@ -19,6 +20,7 @@ class GameScene: SKScene {
     var numberButtons: [ButtonNode] = []
     
     var notesToggle: Bool = false
+    var time: Date = Date()
     
     let MISC_BUTTON_NAMES = ["Home", "Settings"]
     let ACTION_BUTTON_NAMES = ["Notes1", "Undo", "Check", "Erase", "Notes2"]
@@ -112,6 +114,8 @@ class GameScene: SKScene {
     override func didMove(to view: SKView) {
         
         // Code to run when the scene is first loaded into view
+        time = Date.now
+        print("heyooo")
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -120,6 +124,7 @@ class GameScene: SKScene {
     }
     
     override func update(_ currentTime: TimeInterval) {
+        gridFrame!.updateGrid(-time.timeIntervalSinceNow)
         // Code to run on each frame of the game loop
     }
     
