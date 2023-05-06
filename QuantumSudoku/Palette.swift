@@ -33,8 +33,12 @@ class Palette {
     static let gridStrongLine = UIColor(named: "GridStrongLine")!
     static let gridWeakLine = UIColor(named: "GridWeakLine")!
     
-    static let gradient1 = [UIColor(named: "Gradient1-1")!, UIColor(named: "Gradient1-2")!]
-    static let gradient2 = [UIColor(named: "Gradient2-1")!, UIColor(named: "Gradient2-2")!]
+    static let gradientColors = [UIColor(named: "GradientPink")!,
+                                 UIColor(named: "GradientHotPink")!,
+                                 UIColor(named: "GradientOrange")!,
+                                 UIColor(named: "GradientYellow")!,
+                                 UIColor(named: "GradientGreen")!,
+                                 UIColor(named: "GradientPurple")!]
     
     static let mainTextFont = "Helvetica"
     static let gridNumberFont = "Menlo"

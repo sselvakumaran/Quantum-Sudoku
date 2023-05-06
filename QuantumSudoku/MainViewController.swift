@@ -43,7 +43,7 @@ class MainViewController: UIViewController, QSceneDelegate {
             gameRoot.switchDelegate = self
             // Set the scale mode to scale to fit the window
             homeRoot.scaleMode = .aspectFit //change to .fill
-            homeRoot.adjustToFrame(frame: self.view.safeAreaLayoutGuide.layoutFrame)
+            //homeRoot.adjustToFrame(frame: self.view.safeAreaLayoutGuide.layoutFrame)
             
             // Present the scene
             if let view = self.view as! SKView? {
@@ -61,7 +61,7 @@ class MainViewController: UIViewController, QSceneDelegate {
                 
             // Set the scale mode to scale to fit the window
             gameRoot.scaleMode = .aspectFit //change to .fill
-            gameRoot.adjustToFrame(frame: self.view.safeAreaLayoutGuide.layoutFrame)
+            //gameRoot.adjustToFrame(frame: self.view.safeAreaLayoutGuide.layoutFrame)
             // Present the scene
             if let view = self.view as! SKView? {
                 //view.frame = self.view.safeAreaLayoutGuide.layoutFrame
@@ -79,7 +79,7 @@ class MainViewController: UIViewController, QSceneDelegate {
                 
             // Set the scale mode to scale to fit the window
             homeRoot.scaleMode = .aspectFit //change to .fill
-            homeRoot.adjustToFrame(frame: self.view.safeAreaLayoutGuide.layoutFrame)
+            //homeRoot.adjustToFrame(frame: self.view.safeAreaLayoutGuide.layoutFrame)
             // Present the scene
             if let view = self.view as! SKView? {
                 //view.frame = self.view.safeAreaLayoutGuide.layoutFrame

@@ -13,8 +13,9 @@ struct GridPos {
 
 class GridNode: SKNode {
     
-    let THICK_LINE_WIDTH = 6
-    let THIN_LINE_WIDTH = 4
+    let THICK_LINE_WIDTH = 4.0
+    let THIN_LINE_WIDTH = 4.0
+    let FRAME_THICKNESS = 6.0
     let THICK_LINE_COLOR = Palette.gridStrongLine
     let THIN_LINE_COLOR = Palette.gridWeakLine
     let LABEL_GIVEN_COLOR = Palette.textSymbolNormal
@@ -24,11 +25,13 @@ class GridNode: SKNode {
     let SECONDARY_SELECTED_COLOR = Palette.backgroundSecondary
     let TERTIARY_SELECTED_COLOR = Palette.backgroundTertiary
     let UNSELECTED_GRID_COLOR = Palette.backgroundNormal
+    let GRADIENT_COLORS = Palette.gradientColors
     
     var gridFrame: CGRect = CGRect()
     // [ROW][COLUMN]
     var labels: [[SKLabelNode]]
     var cellBackgrounds: [[SKSpriteNode]]
+    var entangledCellFrames: [[SKShapeNode]]
     // [HORIZONTAL, VERTICAL]
     var gridLines: [[SKShapeNode]]
     
@@ -39,13 +42,14 @@ class GridNode: SKNode {
         labels = Array(repeating: Array(repeating: SKLabelNode(), count: 9), count: 9)
         cellBackgrounds = Array(repeating: Array(repeating: SKSpriteNode(), count: 9), count: 9)
         gridLines = [Array(repeating: SKShapeNode(), count: 8), Array(repeating: SKShapeNode(), count: 8)]
+        entangledCellFrames = []
         
         super.init()
         
         initialize_grid()
         make_puzzle(0)
         
-        // HORIZONTAL
+        // HORIZONTAL LINES
         for i in 0..<gridLines[0].count {
             let line = SKShapeNode(rect: CGRect(x: gridFrame.origin.x,
                                                 y: gridFrame.maxY - gridFrame.height * ((CGFloat) (i) + 1) / 9,
@@ -53,11 +57,12 @@ class GridNode: SKNode {
                                                 height: (CGFloat) (i % 3 == 2 ? THICK_LINE_WIDTH : THIN_LINE_WIDTH)))
             line.fillColor = i % 3 == 2 ? THICK_LINE_COLOR : THIN_LINE_COLOR
             line.zPosition = i % 3 == 2 ? 4 : 2
+            line.glowWidth = 0
             gridLines[0][i] = line
             addChild(line)
         }
         
-        // VERTICAL
+        // VERTICAL LINES
         for i in 0..<gridLines[1].count {
             let line = SKShapeNode(rect: CGRect(x: gridFrame.minX + gridFrame.width * ((CGFloat) (i) + 1) / 9,
                                                 y: gridFrame.origin.y,
@@ -65,6 +70,7 @@ class GridNode: SKNode {
                                                 height: gridFrame.height))
             line.fillColor = i % 3 == 2 ? THICK_LINE_COLOR : THIN_LINE_COLOR
             line.zPosition = i % 3 == 2 ? 5 : 3
+            line.glowWidth = 0
             gridLines[1][i] = line
             addChild(line)
         }
@@ -94,6 +100,28 @@ class GridNode: SKNode {
                 background.zPosition = 0
                 cellBackgrounds[r][c] = background
                 addChild(background)
+            }
+        }
+        let num_systems = get_num_entangled_systems()
+        entangledCellFrames = Array(repeating: [], count: Int(num_systems))
+        for system in 0..<num_systems {
+            let num_cells = get_num_entangled_in_system(system)
+            entangledCellFrames[Int(system)] = Array(repeating: SKShapeNode(), count: Int(num_cells))
+            for cell in 0..<num_cells {
+                let pos = get_pos_entangled_cell(system, cell)
+                let bgframe = cellBackgrounds[Int(get_row(pos))][Int(get_column(pos))].frame
+                let entangledFrame = SKShapeNode(rect: CGRect(x: bgframe.minX + FRAME_THICKNESS,
+                                                              y: bgframe.minY + FRAME_THICKNESS,
+                                                              width: bgframe.width + THIN_LINE_WIDTH - 2 * FRAME_THICKNESS,
+                                                              height: bgframe.height + THIN_LINE_WIDTH - 2 * FRAME_THICKNESS),
+                                                 cornerRadius: 0)
+                entangledFrame.fillColor = UIColor.clear
+                entangledFrame.strokeColor = GRADIENT_COLORS[Int(system)]
+                entangledFrame.lineCap = CGLineCap.square
+                entangledFrame.lineWidth = FRAME_THICKNESS
+                entangledFrame.zPosition = 1
+                entangledCellFrames[Int(system)][Int(cell)] = entangledFrame
+                addChild(entangledCellFrames[Int(system)][Int(cell)])
             }
         }
         

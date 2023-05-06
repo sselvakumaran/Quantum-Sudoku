@@ -5,8 +5,6 @@ import UIKit
 class GameScene: SKScene {
     
     let textColor = Palette.textSymbolNormal
-    let titleLowColor = Palette.gradient1[0]
-    let titleHighColor = Palette.gradient1[1]
     let selectedColor = Palette.backgroundPrimary
     let selectedTextColor = Palette.textSymbolNormal
     let secondarySelectedColor = Palette.backgroundSecondary
