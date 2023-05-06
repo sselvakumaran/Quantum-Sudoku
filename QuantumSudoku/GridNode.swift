@@ -26,6 +26,7 @@ class GridNode: SKNode {
     let TERTIARY_SELECTED_COLOR = Palette.backgroundTertiary
     let UNSELECTED_GRID_COLOR = Palette.backgroundNormal
     let GRADIENT_COLORS = Palette.gradientColors
+    let INCORRECT_COLOR = Palette.incorrectCell
     
     var gridFrame: CGRect = CGRect()
     // [ROW][COLUMN]
@@ -165,6 +166,7 @@ class GridNode: SKNode {
     func placeNumber(_ number: Int) {
         let num = place_number(Int32(selectedCell.row), Int32(selectedCell.column), Int32(number))
         if (num != 10) {
+            labels[selectedCell.row][selectedCell.column].fontColor = LABEL_PLACED_COLOR
             labels[selectedCell.row][selectedCell.column].text = number != 0 ? "\(num)" : ""
         }
     }
@@ -178,6 +180,21 @@ class GridNode: SKNode {
                                                                                               Palette.timeToCosineLerp(time + Double(system)))
             }
         }
+    }
+    
+    func checkGrid() -> Bool {
+        var result = true
+        for r in 0..<labels.count {
+            for c in 0..<labels[0].count {
+                if (check_cell(Int32(r),Int32(c)) == 0) {
+                    if (get_number(Int32(r), Int32(c)) != 0) {
+                        labels[r][c].fontColor = INCORRECT_COLOR
+                    }
+                    result = false
+                }
+            }
+        }
+        return result
     }
     
     required init?(coder aDecoder: NSCoder) {

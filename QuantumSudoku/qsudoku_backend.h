@@ -18,6 +18,7 @@ void make_puzzle(int difficulty);
 int place_number(int row, int column, int number);
 int is_cell_given(int row, int column);
 int get_number(int row, int column);
+int get_answer(int row, int column);
 int check_cell(int row, int column);
 int get_num_entangled_systems(void);
 int get_num_entangled_in_system(int system);

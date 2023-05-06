@@ -33,6 +33,8 @@ class Palette {
     static let gridStrongLine = UIColor(named: "GridStrongLine")!
     static let gridWeakLine = UIColor(named: "GridWeakLine")!
     
+    static let incorrectCell = UIColor(named: "IncorrectCell")!
+    
     static let gradientColors = [UIColor(named: "GradientPink")!,
                                  UIColor(named: "GradientHotPink")!,
                                  UIColor(named: "GradientOrange")!,
@@ -59,8 +61,6 @@ class Palette {
     static func gradientMix(_ set: [UIColor], _ t: Double) -> UIColor {
         let color1 = set[0].cgColor.components!
         let color2 = set[1].cgColor.components!
-        print(color1)
-        print(color2)
         return UIColor(red: color1[0] * (1-t) + color2[0] * t,
                        green: color1[1] * (1-t) + color2[1] * t,
                        blue: color1[2] * (1-t) + color2[2] * t,

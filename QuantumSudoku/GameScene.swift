@@ -89,7 +89,7 @@ class GameScene: SKScene {
         }
         // CHECK
         actionButtons[2].action = {
-            
+            print(self.gridFrame!.checkGrid())
         }
         // ERASE
         actionButtons[3].action = {
@@ -115,7 +115,6 @@ class GameScene: SKScene {
         
         // Code to run when the scene is first loaded into view
         time = Date.now
-        print("heyooo")
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
