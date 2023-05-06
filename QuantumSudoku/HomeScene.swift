@@ -2,9 +2,7 @@ import GameplayKit
 import SpriteKit
 import UIKit
 
-protocol QSceneDelegate: AnyObject {
-    func moveToGameScene(scene: HomeScene, game_code: Int)
-}
+
 
 class HomeScene: SKScene {
     
@@ -41,6 +39,11 @@ class HomeScene: SKScene {
                                        buttonColor:secondarySelectedColor,
                                        buttonLabel:"Resume Saved",
                                        labelColor:secondaryTextColor)
+        
+        resumeGameButton!.action = {
+            self.switchDelegate!.moveToGameScene(scene: self, game_code: 0)
+        }
+        
         removeChildren(in: [newGamePlaceholder, resumeGamePlaceholder])
         addChild(newGameButton!)
         addChild(resumeGameButton!)

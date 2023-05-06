@@ -70,26 +70,35 @@ class GameScene: SKScene {
         
         // DEFINING BUTTON FUNCTIONS
         
-        // BACK
-        
+        // BACK / HOME
+        miscButtons[0].action = {
+            self.switchDelegate!.moveToHomeScene(scene: self, return_code: 0)
+        }
         // SETTINGS
+        miscButtons[1].action = {
+            
+        }
         
-        // NOTES
+        // NOTES1
         actionButtons[0].action = {
             self.notesToggle = !self.notesToggle
-            self.actionButtons[0]
         }
-        actionButtons[4].action = actionButtons[0].action
         // UNDO
-        
+        actionButtons[1].action = {
+            
+        }
         // CHECK
-        
+        actionButtons[2].action = {
+            
+        }
         // ERASE
         actionButtons[3].action = {
             if self.gridFrame != nil {
                 self.gridFrame!.placeNumber(0)
             }
         }
+        // NOTES2
+        actionButtons[4].action = actionButtons[0].action
         
         // NUMBER BUTTONS
         for i in 0..<NUMBER_BUTTON_NAMES.count {

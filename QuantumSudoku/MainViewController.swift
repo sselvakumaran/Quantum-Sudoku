@@ -9,6 +9,11 @@ import UIKit
 import SpriteKit
 import GameplayKit
 
+protocol QSceneDelegate: AnyObject {
+    func moveToGameScene(scene: HomeScene, game_code: Int)
+    func moveToHomeScene(scene: GameScene, return_code: Int)
+}
+
 class MainViewController: UIViewController, QSceneDelegate {
     
     var homeScene: GKScene? = nil
@@ -35,6 +40,7 @@ class MainViewController: UIViewController, QSceneDelegate {
             //view.frame = self.view.safeAreaLayoutGuide.layoutFrame
             
             homeRoot.switchDelegate = self
+            gameRoot.switchDelegate = self
             // Set the scale mode to scale to fit the window
             homeRoot.scaleMode = .aspectFit //change to .fill
             homeRoot.adjustToFrame(frame: self.view.safeAreaLayoutGuide.layoutFrame)
@@ -60,6 +66,24 @@ class MainViewController: UIViewController, QSceneDelegate {
             if let view = self.view as! SKView? {
                 //view.frame = self.view.safeAreaLayoutGuide.layoutFrame
                 view.presentScene(gameRoot, transition: SKTransition.push(with: SKTransitionDirection.down, duration: 1))
+                view.ignoresSiblingOrder = true
+            }
+        }
+    }
+    
+    func moveToHomeScene(scene: GameScene, return_code: Int) {
+        if homeScene != nil {
+            // Get the SKScene from the loaded GKScene
+            let homeRoot = homeScene!.rootNode as! HomeScene
+            // Copy gameplay related content over to the scene
+                
+            // Set the scale mode to scale to fit the window
+            homeRoot.scaleMode = .aspectFit //change to .fill
+            homeRoot.adjustToFrame(frame: self.view.safeAreaLayoutGuide.layoutFrame)
+            // Present the scene
+            if let view = self.view as! SKView? {
+                //view.frame = self.view.safeAreaLayoutGuide.layoutFrame
+                view.presentScene(homeRoot, transition: SKTransition.push(with: SKTransitionDirection.up, duration: 1))
                 view.ignoresSiblingOrder = true
             }
         }

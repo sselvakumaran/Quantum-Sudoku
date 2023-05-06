@@ -59,9 +59,7 @@ int place_number(int row, int column, int number) {
     int8_t cell = grid[9*row + column];
     if ((cell & 0xf) != 10)
         cell = number + (cell & 0xf0);
-    else
-        return 0;
-    grid[8*row + column] = cell;
+    grid[9*row + column] = cell;
     return cell & 0xf;
 }
 

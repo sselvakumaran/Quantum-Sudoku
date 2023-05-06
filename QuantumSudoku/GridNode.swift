@@ -116,9 +116,9 @@ class GridNode: SKNode {
                         (r == selectedCell.row ? 2 : 0) +
                         (r / 3 == selectedCell.row / 3 && c / 3 == selectedCell.column / 3 ? 4 : 0) +
                         (num_t != 0 && get_number(Int32(r), Int32(c)) == num_t ? 8 : 0) {
-                    case 7, 15: // selected cell
+                    case 7, 15: // matches row, column, subgrid
                         color = PRIMARY_SELECTED_COLOR
-                    case 8..<15:
+                    case 8..<15: // is nonzero space and shares number with selected cell
                         color = TERTIARY_SELECTED_COLOR
                     case 0:
                         color = UNSELECTED_GRID_COLOR
@@ -133,8 +133,8 @@ class GridNode: SKNode {
     
     func placeNumber(_ number: Int) {
         let num = place_number(Int32(selectedCell.row), Int32(selectedCell.column), Int32(number))
-        if num != 0 {
-            labels[selectedCell.row][selectedCell.column].text = "\(num)"
+        if (num != 10) {
+            labels[selectedCell.row][selectedCell.column].text = number != 0 ? "\(num)" : ""
         }
     }
     
