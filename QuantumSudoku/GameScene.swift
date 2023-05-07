@@ -19,7 +19,6 @@ class GameScene: SKScene {
     var actionButtons: [ButtonNode] = []
     var numberButtons: [ButtonNode] = []
     
-    var notesToggle: Bool = false
     var time: Date = Date()
     
     let MISC_BUTTON_NAMES = ["Home", "Settings"]
@@ -81,7 +80,7 @@ class GameScene: SKScene {
         
         // NOTES1
         actionButtons[0].action = {
-            self.notesToggle = !self.notesToggle
+            self.gridFrame!.toggleNotes()
         }
         // UNDO
         actionButtons[1].action = {

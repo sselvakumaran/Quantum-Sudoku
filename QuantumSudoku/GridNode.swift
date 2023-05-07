@@ -39,6 +39,7 @@ class GridNode: SKNode {
     var gridLines: [[SKShapeNode]]
     
     var selectedCell: GridPos = GridPos(0,0)
+    var notesToggle: Bool = false
     
     init(_ gridFrame: CGRect) {
         self.gridFrame = gridFrame
@@ -164,11 +165,25 @@ class GridNode: SKNode {
     }
     
     func placeNumber(_ number: Int) {
-        let num = place_number(Int32(selectedCell.row), Int32(selectedCell.column), Int32(number))
-        if (num != 10) {
-            labels[selectedCell.row][selectedCell.column].fontColor = LABEL_PLACED_COLOR
-            labels[selectedCell.row][selectedCell.column].text = number != 0 ? "\(num)" : ""
+        if (!notesToggle) {
+            let num = place_number(Int32(selectedCell.row), Int32(selectedCell.column), Int32(number))
+            if (num != 10) {
+                labels[selectedCell.row][selectedCell.column].fontColor = LABEL_PLACED_COLOR
+                labels[selectedCell.row][selectedCell.column].text = number != 0 ? "\(num)" : ""
+            }
+        } else {
+            toggle_note(Int32(selectedCell.row), Int32(selectedCell.column), Int32(number))
+            print(String(format: "%x note %d at (%d, %d)",
+                         get_notes(Int32(selectedCell.row), Int32(selectedCell.column)),
+                         number,
+                         selectedCell.row,
+                         selectedCell.column))
         }
+    }
+    
+    func toggleNotes() {
+        print("toggled notes")
+        notesToggle = !notesToggle
     }
     
     func updateGrid(_ time: Double) {

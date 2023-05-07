@@ -113,12 +113,30 @@ int get_column(int pos) {
     return pos % 9;
 }
 int toggle_note(int row, int column, int number) {
-    return 0x0000;
+    int8_t pos = (9*row + column);
+    int result = !(grid[pos] & 0xf), byte, remainder;
+    if (result) {
+        if (number != 0) {
+            pos= 9*pos + (9 - number);
+            byte= pos/8;
+            remainder= pos % 8;
+            notes[byte]^= (1 << (7 - remainder));
+            result= (notes[byte] & (1 << (7 - remainder))) != 0;
+        } else {
+            pos*= 9;
+            byte= pos/8;
+            remainder= pos % 8;
+            notes[byte]&= ((1 << (remainder + 1)) - 1) << (8 - remainder);
+            notes[byte + 1]&= (1 << (8-remainder)) - 1;
+            result= 0;
+        }
+    }
+    return result;
 }
 int get_notes(int row, int column) {
-    int8_t pos = 9*row + column;
-    int byte = (9 * pos) / 8, remainder = (9 * pos) % 8;
-    return 0;
+    int8_t pos = 9*(9*row + column);
+    int byte = pos/8, remainder = pos % 8;
+    return ((uint16_t) (notes[byte]) << (remainder + 1)) + (notes[byte + 1] >> (7 - remainder));
 }
 void cleanup(void) {
     if (grid != NULL) {
