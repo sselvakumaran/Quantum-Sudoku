@@ -153,6 +153,39 @@ class GridNode: SKNode {
             if (num != 10) {
                 labels[selectedCell.row][selectedCell.column].fontColor = LABEL_PLACED_COLOR
                 labels[selectedCell.row][selectedCell.column].text = number != 0 ? "\(num)" : ""
+                for row in 0..<9 {
+                    for column in selectedCell.column..<selectedCell.column + 1 {
+                        if (row != selectedCell.row || column != selectedCell.column) && (note_exists(Int32(row), Int32(column), num) != 0) {
+                            toggle_note(Int32(row), Int32(column), num)
+                            if noteLabels[row][column]![Int(num) - 1] != nil {
+                                removeChildren(in: [noteLabels[row][column]![Int(num) - 1]!])
+                            }
+                            noteLabels[row][column]![Int(num - 1)] = nil
+                        }
+                    }
+                }
+                for row in selectedCell.row..<selectedCell.row + 1 {
+                    for column in 0..<9 {
+                        if (row != selectedCell.row || column != selectedCell.column) && (note_exists(Int32(row), Int32(column), num) != 0) {
+                            toggle_note(Int32(row), Int32(column), num)
+                            if noteLabels[row][column]![Int(num) - 1] != nil {
+                                removeChildren(in: [noteLabels[row][column]![Int(num) - 1]!])
+                            }
+                            noteLabels[row][column]![Int(num - 1)] = nil
+                        }
+                    }
+                }
+                for row in 3 * (selectedCell.row/3)..<3 * (selectedCell.row/3 + 1) {
+                    for column in 3 * (selectedCell.column/3)..<3 * (selectedCell.column/3 + 1) {
+                        if (row != selectedCell.row || column != selectedCell.column) && (note_exists(Int32(row), Int32(column), num) != 0) {
+                            toggle_note(Int32(row), Int32(column), num)
+                            if noteLabels[row][column]![Int(num) - 1] != nil {
+                                removeChildren(in: [noteLabels[row][column]![Int(num) - 1]!])
+                            }
+                            noteLabels[row][column]![Int(num - 1)] = nil
+                        }
+                    }
+                }
                 if (noteLabels[selectedCell.row][selectedCell.column] != nil) {
                     for label in noteLabels[selectedCell.row][selectedCell.column]! {
                         if label != nil {

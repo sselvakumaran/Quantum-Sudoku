@@ -28,6 +28,7 @@ int get_row(int pos);
 int get_column(int pos);
 int toggle_note(int row, int column, int number);
 int get_notes(int row, int column);
+int note_exists(int row, int column, int number);
 void cleanup(void);
 
 #endif /* qsudoku_backend_h */

@@ -142,6 +142,10 @@ int get_notes(int row, int column) {
     int byte = pos/8, remainder = pos % 8;
     return ((uint16_t) (notes[byte]) << (remainder + 1)) + (notes[byte + 1] >> (7 - remainder));
 }
+int note_exists(int row, int column, int number) {
+    int pos = 9*(9*row + column) + (9 - number);
+    return (notes[pos/8] & (1 << (7 - (pos % 8)))) != 0;
+}
 void cleanup(void) {
     if (grid != NULL) {
         free(grid);
