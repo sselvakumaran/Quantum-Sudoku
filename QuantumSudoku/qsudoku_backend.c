@@ -18,6 +18,7 @@ first 4 bits: current shown number (placed by user)
 static uint8_t * grid = NULL;
 static uint8_t * entangled = NULL;
 static uint8_t * system_pos_list = NULL;
+static uint8_t * notes = NULL;
 static int num_entangled_systems = 0; //holds the index of the first cell in that system, last entry is sentinel (= length(entangled))
 static const int NUM_CELLS = 9*9;
 static const int MAX_SYSTEMS = (NUM_CELLS) / 2;
@@ -50,7 +51,8 @@ void initialize_grid(void) {
     grid = calloc(NUM_CELLS, sizeof(uint8_t));
     entangled = calloc(NUM_CELLS, sizeof(uint8_t));
     system_pos_list = calloc(MAX_SYSTEMS, sizeof(uint8_t));
-    assert(grid != NULL && entangled != NULL && system_pos_list != NULL);
+    notes = calloc(9*9*9 / sizeof(uint8_t) + 1, sizeof(uint8_t));
+    assert(grid != NULL && entangled != NULL && system_pos_list != NULL && notes != NULL);
 }
 
 void make_puzzle(int difficulty) {
@@ -59,7 +61,6 @@ void make_puzzle(int difficulty) {
         for (i = 0; i < 9; i++)
             for (j = 0; j < 9; j++)
                 grid[9*i + j]= (TESTPUZZLE_ANSWERS[i][j] << 4) + TESTPUZZLE_GIVEN[i][j];
-        
         num_entangled_systems = TESTPUZZLE_NUMENTANGLEDSYSTEMS;
         for (i = 0; i <= num_entangled_systems; i++) // GOES ONE OVER TO COVER SENTINEL
             system_pos_list[i] = TESTPUZZLE_SYSTEMPOSLIST[i];
@@ -111,10 +112,19 @@ int get_row(int pos) {
 int get_column(int pos) {
     return pos % 9;
 }
+int toggle_note(int row, int column, int number) {
+    return 0x0000;
+}
+int get_notes(int row, int column) {
+    int8_t pos = 9*row + column;
+    int byte = (9 * pos) / 8, remainder = (9 * pos) % 8;
+    return 0;
+}
 void cleanup(void) {
     if (grid != NULL) {
         free(grid);
         free(entangled);
         free(system_pos_list);
+        free(notes);
     }
 }

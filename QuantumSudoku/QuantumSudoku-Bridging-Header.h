@@ -15,4 +15,6 @@ int get_num_entangled_in_system(int system);
 int get_pos_entangled_cell(int system, int cell_num);
 int get_row(int pos);
 int get_column(int pos);
+int toggle_note(int row, int column, int number);
+int get_notes(int row, int column);
 void cleanup(void);
