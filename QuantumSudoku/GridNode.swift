@@ -45,7 +45,7 @@ class GridNode: SKNode {
         self.gridFrame = gridFrame
         labels = Array(repeating: Array(repeating: SKLabelNode(), count: 9), count: 9)
         cellBackgrounds = Array(repeating: Array(repeating: SKSpriteNode(), count: 9), count: 9)
-        gridLines = [Array(repeating: SKShapeNode(), count: 8), Array(repeating: SKShapeNode(), count: 8)]
+        gridLines = [Array(repeating: SKShapeNode(), count: 10), Array(repeating: SKShapeNode(), count: 10)]
         entangledCellFrames = []
         
         super.init()
@@ -56,11 +56,11 @@ class GridNode: SKNode {
         // HORIZONTAL LINES
         for i in 0..<gridLines[0].count {
             let line = SKShapeNode(rect: CGRect(x: gridFrame.origin.x,
-                                                y: gridFrame.maxY - gridFrame.height * ((CGFloat) (i) + 1) / 9,
-                                                width: gridFrame.width,
-                                                height: (CGFloat) (i % 3 == 2 ? THICK_LINE_WIDTH : THIN_LINE_WIDTH)))
-            line.fillColor = i % 3 == 2 ? THICK_LINE_COLOR : THIN_LINE_COLOR
-            line.zPosition = i % 3 == 2 ? 4 : 2
+                                                y: gridFrame.maxY - gridFrame.height * ((CGFloat) (i)) / 9,
+                                                width: gridFrame.width + (i % 3 == 0 ? THICK_LINE_WIDTH : THIN_LINE_WIDTH),
+                                                height: (CGFloat) (i % 3 == 0 ? THICK_LINE_WIDTH : THIN_LINE_WIDTH)))
+            line.fillColor = i % 3 == 0 ? THICK_LINE_COLOR : THIN_LINE_COLOR
+            line.zPosition = i % 3 == 0 ? 4 : 2
             line.glowWidth = 0
             gridLines[0][i] = line
             addChild(line)
@@ -68,12 +68,12 @@ class GridNode: SKNode {
         
         // VERTICAL LINES
         for i in 0..<gridLines[1].count {
-            let line = SKShapeNode(rect: CGRect(x: gridFrame.minX + gridFrame.width * ((CGFloat) (i) + 1) / 9,
+            let line = SKShapeNode(rect: CGRect(x: gridFrame.minX + gridFrame.width * ((CGFloat) (i)) / 9,
                                                 y: gridFrame.origin.y,
-                                                width: (CGFloat) (i % 3 == 2 ? THICK_LINE_WIDTH : THIN_LINE_WIDTH),
-                                                height: gridFrame.height))
-            line.fillColor = i % 3 == 2 ? THICK_LINE_COLOR : THIN_LINE_COLOR
-            line.zPosition = i % 3 == 2 ? 5 : 3
+                                                width: (CGFloat) (i % 3 == 0 ? THICK_LINE_WIDTH : THIN_LINE_WIDTH),
+                                                height: gridFrame.height + (i % 3 == 0 ? THICK_LINE_WIDTH : THIN_LINE_WIDTH)))
+            line.fillColor = i % 3 == 0 ? THICK_LINE_COLOR : THIN_LINE_COLOR
+            line.zPosition = i % 3 == 0 ? 4 : 2
             line.glowWidth = 0
             gridLines[1][i] = line
             addChild(line)
@@ -173,16 +173,11 @@ class GridNode: SKNode {
             }
         } else {
             toggle_note(Int32(selectedCell.row), Int32(selectedCell.column), Int32(number))
-            print(String(format: "%x note %d at (%d, %d)",
-                         get_notes(Int32(selectedCell.row), Int32(selectedCell.column)),
-                         number,
-                         selectedCell.row,
-                         selectedCell.column))
+            
         }
     }
     
     func toggleNotes() {
-        print("toggled notes")
         notesToggle = !notesToggle
     }
     

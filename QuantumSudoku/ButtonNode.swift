@@ -5,6 +5,7 @@ class ButtonNode: SKNode {
     var background: SKShapeNode? = nil
     var contentLabel: SKLabelNode? = nil
     var contentSymbol: SKSpriteNode? = nil
+    var contentSymbolImage: UIImage? = nil
     
     var action: (() -> Void)?
     
@@ -54,7 +55,8 @@ class ButtonNode: SKNode {
         // Create the image
         var imageconfig = UIImage.SymbolConfiguration(weight: .regular)
         imageconfig = imageconfig.applying(UIImage.SymbolConfiguration(paletteColors: [symbolColor, symbolColor, symbolColor]))
-        var image = UIImage(systemName: buttonSymbol, withConfiguration: imageconfig)!
+        let image = UIImage(systemName: buttonSymbol, withConfiguration: imageconfig)!
+        contentSymbolImage = image
         let data = image.pngData()
         let ratio = 0.5 * (buttonRect.width > buttonRect.height ?
                             buttonRect.width / image.size.width :
@@ -112,7 +114,11 @@ class ButtonNode: SKNode {
             contentLabel!.fontColor = contentColor
         }
         if (contentSymbol != nil) {
-            contentSymbol!.color = contentColor
+            let imageconfig = UIImage.SymbolConfiguration(weight: .regular)
+                .applying(UIImage.SymbolConfiguration(paletteColors: [contentColor, contentColor, contentColor]))
+            let image = contentSymbolImage!.applyingSymbolConfiguration(imageconfig)
+            let data = image!.pngData()
+            contentSymbol!.texture = SKTexture(image: UIImage(data: data!)!)
         }
     }
     

@@ -6,6 +6,7 @@ import ClockKit
 class GameScene: SKScene {
     
     let textColor = Palette.textSymbolNormal
+    let buttonColor = Palette.backgroundNormal
     let selectedColor = Palette.backgroundPrimary
     let selectedTextColor = Palette.textSymbolNormal
     let secondarySelectedColor = Palette.backgroundSecondary
@@ -38,7 +39,7 @@ class GameScene: SKScene {
             miscButtons.insert(ButtonNode(buttonRect: placeholderNode.frame,
                                         buttonColor: Palette.backgroundNormal,
                                         buttonSymbol: MISC_SYMBOL_NAMES[i],
-                                          symbolColor: secondaryTextColor), at: i);
+                                        symbolColor: secondaryTextColor), at: i);
             removeChildren(in: [placeholderNode])
             addChild(miscButtons[i])
         }
@@ -81,6 +82,11 @@ class GameScene: SKScene {
         // NOTES1
         actionButtons[0].action = {
             self.gridFrame!.toggleNotes()
+            let toggle = self.gridFrame!.notesToggle
+            for i in [0, 4] {
+                self.actionButtons[i].changeColors(buttonColor: toggle ? self.secondaryTextColor : self.buttonColor,
+                                                   contentColor: toggle ? self.buttonColor : self.secondaryTextColor)
+            }
         }
         // UNDO
         actionButtons[1].action = {
@@ -88,7 +94,10 @@ class GameScene: SKScene {
         }
         // CHECK
         actionButtons[2].action = {
-            print(self.gridFrame!.checkGrid())
+            let result = self.gridFrame!.checkGrid()
+            if result {
+                print("eyoooo")
+            }
         }
         // ERASE
         actionButtons[3].action = {
