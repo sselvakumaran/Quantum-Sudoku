@@ -48,10 +48,15 @@ const static uint8_t TESTPUZZLE_SYSTEMPOSLIST[] = {0,2,5,8};
 const static uint8_t TESTPUZZLE_NUMENTANGLEDSYSTEMS = 3;
 
 void initialize_grid(void) {
+    int i;
     grid = calloc(NUM_CELLS, sizeof(uint8_t));
     entangled = calloc(NUM_CELLS, sizeof(uint8_t));
     system_pos_list = calloc(MAX_SYSTEMS, sizeof(uint8_t));
     notes = calloc(9*9*9 / sizeof(uint8_t) + 1, sizeof(uint8_t));
+    for (i = 0; i < 9*9*9 / sizeof(uint8_t) + 1; i++) {
+        notes[i] = 0;
+    }
+        
     assert(grid != NULL && entangled != NULL && system_pos_list != NULL && notes != NULL);
 }
 
@@ -113,14 +118,14 @@ int get_column(int pos) {
     return pos % 9;
 }
 int toggle_note(int row, int column, int number) {
-    int8_t pos = (9*row + column);
+    int pos = 9*row + column;
     int result = !(grid[pos] & 0xf) - 1, byte, remainder;
     if (result == 0) {
         if (number != 0) {
             pos= 9*pos + (9 - number);
             byte= pos/8;
             remainder= pos % 8;
-            notes[byte]^= (1 << (7 - remainder));
+            notes[byte] ^= (1 << (7 - remainder));
             result= ((notes[byte] & (1 << (7 - remainder))) != 0) + 1;
         } else {
             pos*= 9;
@@ -128,13 +133,12 @@ int toggle_note(int row, int column, int number) {
             remainder= pos % 8;
             notes[byte]&= ((1 << (remainder + 1)) - 1) << (8 - remainder);
             notes[byte + 1]&= (1 << (8-remainder)) - 1;
-            result= 0;
         }
     }
     return result;
 }
 int get_notes(int row, int column) {
-    int8_t pos = 9*(9*row + column);
+    int pos = 9*(9*row + column);
     int byte = pos/8, remainder = pos % 8;
     return ((uint16_t) (notes[byte]) << (remainder + 1)) + (notes[byte + 1] >> (7 - remainder));
 }

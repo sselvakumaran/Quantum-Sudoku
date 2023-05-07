@@ -8,10 +8,10 @@ class HomeScene: SKScene {
     // var titlegradient: CGGradient
     let backgroundFrame = Palette.backgroundFrame
     let textColor = Palette.textSymbolNormal
-    let selectedColor = Palette.backgroundPrimary
-    let selectedTextColor = Palette.textSymbolNormal
+    let selectedColor = Palette.textSymbolBold
+    let selectedTextColor = Palette.backgroundNormal
     let secondarySelectedColor = Palette.backgroundSecondary
-    let secondaryTextColor = Palette.textSymbolBold
+    let secondaryTextColor = Palette.textSymbolNormal
     
     weak var switchDelegate: QSceneDelegate?
     

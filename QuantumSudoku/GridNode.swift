@@ -143,26 +143,7 @@ class GridNode: SKNode {
             let column = Int((touchLocation.x - self.gridFrame.minX) * 9.0 / self.gridFrame.width)
             let row = Int((self.gridFrame.maxY - touchLocation.y) * 9.0 / self.gridFrame.height)
             selectedCell = GridPos(row, column)
-            var color: UIColor = UNSELECTED_GRID_COLOR
-            for r in 0..<cellBackgrounds.count {
-                for c in 0..<cellBackgrounds[0].count {
-                    let num_t = get_number(Int32(row), Int32(column))
-                    switch (c == selectedCell.column ? 1 : 0) +
-                        (r == selectedCell.row ? 2 : 0) +
-                        (r / 3 == selectedCell.row / 3 && c / 3 == selectedCell.column / 3 ? 4 : 0) +
-                        (num_t != 0 && get_number(Int32(r), Int32(c)) == num_t ? 8 : 0) {
-                    case 7, 15: // matches row, column, subgrid
-                        color = PRIMARY_SELECTED_COLOR
-                    case 8..<15: // is nonzero space and shares number with selected cell
-                        color = TERTIARY_SELECTED_COLOR
-                    case 0:
-                        color = UNSELECTED_GRID_COLOR
-                    default:
-                        color = SECONDARY_SELECTED_COLOR
-                    }
-                    cellBackgrounds[r][c].color = color
-                }
-            }
+            updateGridBackground(row, column)
         }
     }
     
@@ -172,29 +153,23 @@ class GridNode: SKNode {
             if (num != 10) {
                 labels[selectedCell.row][selectedCell.column].fontColor = LABEL_PLACED_COLOR
                 labels[selectedCell.row][selectedCell.column].text = number != 0 ? "\(num)" : ""
+                if (noteLabels[selectedCell.row][selectedCell.column] != nil) {
+                    for label in noteLabels[selectedCell.row][selectedCell.column]! {
+                        if label != nil {
+                            removeChildren(in: [label!])
+                        }
+                    }
+                    noteLabels[selectedCell.row][selectedCell.column] = nil
+                }
+                updateGridBackground(selectedCell.row, selectedCell.column)
             }
         } else {
             switch toggle_note(Int32(selectedCell.row), Int32(selectedCell.column), Int32(number)) {
             case 2: // flip on
-                if noteLabels[selectedCell.row][selectedCell.column] == nil {
-                    noteLabels[selectedCell.row][selectedCell.column] = Array(repeating: nil, count: 9)
-                }
-                if noteLabels[selectedCell.row][selectedCell.column]![number - 1] == nil {
-                    let frame = cellBackgrounds[selectedCell.row][selectedCell.column].frame
-                    let label = SKLabelNode()
-                    label.fontSize = 3 * (frame.height) / 10
-                    label.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.center
-                    label.verticalAlignmentMode = SKLabelVerticalAlignmentMode.center
-                    label.position = CGPoint(x: frame.minX + ((CGFloat) ((number - 1) % 3) + 0.5) * frame.width / 3,
-                                             y: frame.maxY - ((CGFloat) ((number - 1) / 3) + 0.5) * frame.height / 3)
-                    label.zPosition = 1
-                    label.fontColor = NOTES_TEXT_COLOR
-                    label.fontName = Palette.gridNumberFont
-                    noteLabels[selectedCell.row][selectedCell.column]![number - 1] = label
-                    addChild(label)
-                }
+                makeNoteLabel(selectedCell.row, selectedCell.column, number)
                 noteLabels[selectedCell.row][selectedCell.column]![number - 1]!.text = String(number)
             case 1: // flip off
+                makeNoteLabel(selectedCell.row, selectedCell.column, number)
                 noteLabels[selectedCell.row][selectedCell.column]![number - 1]!.text = ""
             case 0: // clear all
                 if noteLabels[selectedCell.row][selectedCell.column] != nil {
@@ -208,6 +183,59 @@ class GridNode: SKNode {
                 break
             }
 
+        }
+    }
+    
+    func makeNoteLabel(_ row: Int, _ column: Int, _ number: Int) {
+        if noteLabels[row][column] == nil {
+            noteLabels[row][column] = Array(repeating: nil, count: 9)
+        }
+        if noteLabels[row][column]![number - 1] == nil {
+            let frame = cellBackgrounds[row][column].frame
+            let label = SKLabelNode()
+            label.fontSize = 3 * (frame.height) / 10
+            label.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.center
+            label.verticalAlignmentMode = SKLabelVerticalAlignmentMode.center
+            label.position = CGPoint(x: frame.minX + ((CGFloat) ((number - 1) % 3) + 0.5) * frame.width / 3,
+                                     y: frame.maxY - ((CGFloat) ((number - 1) / 3) + 0.5) * frame.height / 3)
+            label.zPosition = 1
+            label.fontName = Palette.gridNumberFont
+            label.fontColor = NOTES_TEXT_COLOR
+            label.fontName = Palette.gridNumberFont
+            noteLabels[row][column]![number - 1] = label
+            addChild(label)
+        }
+    }
+    
+    func updateGridBackground(_ row: Int, _ column: Int) {
+        var color: UIColor = UNSELECTED_GRID_COLOR
+        let num_t = get_number(Int32(row), Int32(column))
+        for r in 0..<cellBackgrounds.count {
+            for c in 0..<cellBackgrounds[0].count {
+                switch (c == selectedCell.column ? 1 : 0) +
+                    (r == selectedCell.row ? 2 : 0) +
+                    (r / 3 == selectedCell.row / 3 && c / 3 == selectedCell.column / 3 ? 4 : 0) +
+                    (num_t != 0 && get_number(Int32(r), Int32(c)) == num_t ? 8 : 0) {
+                case 7, 15: // matches row, column, subgrid
+                    color = PRIMARY_SELECTED_COLOR
+                case 8..<15: // is nonzero space and shares number with selected cell
+                    color = TERTIARY_SELECTED_COLOR
+                case 0:
+                    color = UNSELECTED_GRID_COLOR
+                default:
+                    color = SECONDARY_SELECTED_COLOR
+                }
+                if noteLabels[r][c] != nil {
+                    let isInNotes = get_notes(Int32(r),Int32(c)) & (1 << (num_t - 1)) != 0
+                    for i in 0..<noteLabels[r][c]!.count {
+                        if noteLabels[r][c]![i] != nil {
+                            noteLabels[r][c]![i]!.fontColor = (isInNotes && i == num_t - 1) ? LABEL_GIVEN_COLOR : NOTES_TEXT_COLOR
+                            noteLabels[r][c]![i]!.fontName = (isInNotes && i == num_t - 1) ? Palette.gridNumberBoldFont : Palette.gridNumberFont
+                        }
+                    }
+                }
+                cellBackgrounds[r][c].color = color
+            }
         }
     }
     

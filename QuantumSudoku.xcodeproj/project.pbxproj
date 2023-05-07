@@ -24,9 +24,6 @@
 		74ED0FDA29E352E10091573B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74ED0FD829E352E10091573B /* Main.storyboard */; };
 		74ED0FDC29E352E20091573B /* Symbols.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74ED0FDB29E352E20091573B /* Symbols.xcassets */; };
 		74ED0FDF29E352E20091573B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74ED0FDD29E352E20091573B /* LaunchScreen.storyboard */; };
-		74ED0FE929E352E20091573B /* QuantumSudokuTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74ED0FE829E352E20091573B /* QuantumSudokuTests.swift */; };
-		74ED0FF329E352E20091573B /* QuantumSudokuUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74ED0FF229E352E20091573B /* QuantumSudokuUITests.swift */; };
-		74ED0FF529E352E20091573B /* QuantumSudokuUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74ED0FF429E352E20091573B /* QuantumSudokuUITestsLaunchTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,10 +65,7 @@
 		74ED0FDB29E352E20091573B /* Symbols.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Symbols.xcassets; sourceTree = "<group>"; };
 		74ED0FDE29E352E20091573B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		74ED0FE429E352E20091573B /* QuantumSudokuTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuantumSudokuTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		74ED0FE829E352E20091573B /* QuantumSudokuTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuantumSudokuTests.swift; sourceTree = "<group>"; };
 		74ED0FEE29E352E20091573B /* QuantumSudokuUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuantumSudokuUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		74ED0FF229E352E20091573B /* QuantumSudokuUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuantumSudokuUITests.swift; sourceTree = "<group>"; };
-		74ED0FF429E352E20091573B /* QuantumSudokuUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuantumSudokuUITestsLaunchTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,8 +107,6 @@
 			isa = PBXGroup;
 			children = (
 				74ED0FCD29E352E10091573B /* QuantumSudoku */,
-				74ED0FE729E352E20091573B /* QuantumSudokuTests */,
-				74ED0FF129E352E20091573B /* QuantumSudokuUITests */,
 				74ED0FCC29E352E10091573B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -151,23 +143,6 @@
 				7405148D2A05910D0084B374 /* QuantumSudoku-Bridging-Header.h */,
 			);
 			path = QuantumSudoku;
-			sourceTree = "<group>";
-		};
-		74ED0FE729E352E20091573B /* QuantumSudokuTests */ = {
-			isa = PBXGroup;
-			children = (
-				74ED0FE829E352E20091573B /* QuantumSudokuTests.swift */,
-			);
-			path = QuantumSudokuTests;
-			sourceTree = "<group>";
-		};
-		74ED0FF129E352E20091573B /* QuantumSudokuUITests */ = {
-			isa = PBXGroup;
-			children = (
-				74ED0FF229E352E20091573B /* QuantumSudokuUITests.swift */,
-				74ED0FF429E352E20091573B /* QuantumSudokuUITestsLaunchTests.swift */,
-			);
-			path = QuantumSudokuUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -323,7 +298,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				74ED0FE929E352E20091573B /* QuantumSudokuTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -331,8 +305,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				74ED0FF329E352E20091573B /* QuantumSudokuUITests.swift in Sources */,
-				74ED0FF529E352E20091573B /* QuantumSudokuUITestsLaunchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

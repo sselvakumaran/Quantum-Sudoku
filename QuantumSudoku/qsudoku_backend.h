@@ -8,6 +8,7 @@
 #ifndef qsudoku_backend_h
 #define qsudoku_backend_h
 
+#include <stdio.h>
 #include <stdlib.h>
 #include <assert.h>
 

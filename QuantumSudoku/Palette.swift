@@ -73,4 +73,5 @@ class Palette {
     
     static let mainTextFont = "Helvetica"
     static let gridNumberFont = "Menlo"
+    static let gridNumberBoldFont = "Menlo-Bold"
 }
