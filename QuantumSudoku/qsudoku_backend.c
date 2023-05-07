@@ -114,14 +114,14 @@ int get_column(int pos) {
 }
 int toggle_note(int row, int column, int number) {
     int8_t pos = (9*row + column);
-    int result = !(grid[pos] & 0xf), byte, remainder;
-    if (result) {
+    int result = !(grid[pos] & 0xf) - 1, byte, remainder;
+    if (result == 0) {
         if (number != 0) {
             pos= 9*pos + (9 - number);
             byte= pos/8;
             remainder= pos % 8;
             notes[byte]^= (1 << (7 - remainder));
-            result= (notes[byte] & (1 << (7 - remainder))) != 0;
+            result= ((notes[byte] & (1 << (7 - remainder))) != 0) + 1;
         } else {
             pos*= 9;
             byte= pos/8;

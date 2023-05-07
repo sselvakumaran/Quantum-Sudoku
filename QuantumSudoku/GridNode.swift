@@ -31,6 +31,7 @@ class GridNode: SKNode {
     var gridFrame: CGRect = CGRect()
     // [ROW][COLUMN]
     var labels: [[SKLabelNode]]
+    var noteLabels: [[[SKLabelNode?]?]]
     var cellBackgrounds: [[SKSpriteNode]]
     var entangledCellFrames: [[SKShapeNode]]
     var systemColors: [UIColor] = []
@@ -46,6 +47,7 @@ class GridNode: SKNode {
         labels = Array(repeating: Array(repeating: SKLabelNode(), count: 9), count: 9)
         cellBackgrounds = Array(repeating: Array(repeating: SKSpriteNode(), count: 9), count: 9)
         gridLines = [Array(repeating: SKShapeNode(), count: 10), Array(repeating: SKShapeNode(), count: 10)]
+        noteLabels = Array(repeating: Array(repeating: nil, count: 9), count: 9)
         entangledCellFrames = []
         
         super.init()
@@ -172,8 +174,40 @@ class GridNode: SKNode {
                 labels[selectedCell.row][selectedCell.column].text = number != 0 ? "\(num)" : ""
             }
         } else {
-            toggle_note(Int32(selectedCell.row), Int32(selectedCell.column), Int32(number))
-            
+            switch toggle_note(Int32(selectedCell.row), Int32(selectedCell.column), Int32(number)) {
+            case 2: // flip on
+                if noteLabels[selectedCell.row][selectedCell.column] == nil {
+                    noteLabels[selectedCell.row][selectedCell.column] = Array(repeating: nil, count: 9)
+                }
+                if noteLabels[selectedCell.row][selectedCell.column]![number - 1] == nil {
+                    let frame = cellBackgrounds[selectedCell.row][selectedCell.column].frame
+                    let label = SKLabelNode()
+                    label.fontSize = 3 * (frame.height) / 10
+                    label.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.center
+                    label.verticalAlignmentMode = SKLabelVerticalAlignmentMode.center
+                    label.position = CGPoint(x: frame.minX + ((CGFloat) ((number - 1) % 3) + 0.5) * frame.width / 3,
+                                             y: frame.maxY - ((CGFloat) ((number - 1) / 3) + 0.5) * frame.height / 3)
+                    label.zPosition = 1
+                    label.fontColor = NOTES_TEXT_COLOR
+                    label.fontName = Palette.gridNumberFont
+                    noteLabels[selectedCell.row][selectedCell.column]![number - 1] = label
+                    addChild(label)
+                }
+                noteLabels[selectedCell.row][selectedCell.column]![number - 1]!.text = String(number)
+            case 1: // flip off
+                noteLabels[selectedCell.row][selectedCell.column]![number - 1]!.text = ""
+            case 0: // clear all
+                if noteLabels[selectedCell.row][selectedCell.column] != nil {
+                    for label in noteLabels[selectedCell.row][selectedCell.column]! {
+                        if label != nil {
+                            label!.text = ""
+                        }
+                    }
+                }
+            default:
+                break
+            }
+
         }
     }
     
