@@ -28,7 +28,19 @@ class HomeScene: SKScene {
                                        buttonLabel:"New Game",
                                        labelColor:selectedTextColor)
         newGameButton!.action = {
-            self.switchDelegate!.moveToGameScene(scene: self, game_code: 0)
+            let alertController = UIAlertController(title: "Choose Difficulty", message: nil, preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "Easy", style: .default) { _ in
+                self.switchDelegate!.moveToGameScene(scene: self, difficulty: -1, 0)
+            })
+            alertController.addAction(UIAlertAction(title: "Hard", style: .default) { _ in
+                self.switchDelegate!.moveToGameScene(scene: self, difficulty: -2, 0)
+            })
+            alertController.addAction(UIAlertAction(title: "Evil", style: .default) { _ in
+                self.switchDelegate!.moveToGameScene(scene: self, difficulty: -3, 0)
+            })
+            alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel) { _ in
+            })
+            self.view?.window?.rootViewController?.present(alertController, animated: true)
         }
         
         let resumeGamePlaceholder = self.childNode(withName: "ResumeSaveButton")!
@@ -38,13 +50,13 @@ class HomeScene: SKScene {
                                        labelColor:secondaryTextColor)
         
         resumeGameButton!.action = {
-            self.switchDelegate!.moveToGameScene(scene: self, game_code: 0)
+            self.switchDelegate!.moveToGameScene(scene: self, difficulty: 0, 1)
         }
         
-        let backgroundNode = SKSpriteNode(color: Palette.backgroundFrame, size: CGSize(width:10000, height:10000))
-        backgroundNode.position = CGPoint(x: frame.midX, y: frame.midY)
-        backgroundNode.zPosition = -1
-        addChild(backgroundNode)
+//        let backgroundNode = SKSpriteNode(color: Palette.backgroundFrame, size: CGSize(width:10000, height:10000))
+//        backgroundNode.position = CGPoint(x: frame.midX, y: frame.midY)
+//        backgroundNode.zPosition = -1
+//        addChild(backgroundNode)
         
         removeChildren(in: [newGamePlaceholder, resumeGamePlaceholder])
         addChild(newGameButton!)

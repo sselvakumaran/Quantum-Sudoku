@@ -59,12 +59,13 @@ class Palette {
                        alpha: color1[3] * (1-t) + color2[3] * t)
     }
     static func gradientMix(_ set: [UIColor], _ t: Double) -> UIColor {
+        let t2 = t * 0.6
         let color1 = set[0].cgColor.components!
         let color2 = set[1].cgColor.components!
-        return UIColor(red: color1[0] * (1-t) + color2[0] * t,
-                       green: color1[1] * (1-t) + color2[1] * t,
-                       blue: color1[2] * (1-t) + color2[2] * t,
-                       alpha: color1[3] * (1-t) + color2[3] * t)
+        return UIColor(red: color1[0] * (1-t2) + color2[0] * t2,
+                       green: color1[1] * (1-t2) + color2[1] * t2,
+                       blue: color1[2] * (1-t2) + color2[2] * t2,
+                       alpha: color1[3] * (1-t2) + color2[3] * t2)
     }
     
     static func timeToCosineLerp(_ t: Double) -> Double{

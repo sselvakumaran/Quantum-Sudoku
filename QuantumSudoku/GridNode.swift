@@ -42,7 +42,7 @@ class GridNode: SKNode {
     var selectedCell: GridPos = GridPos(0,0)
     var notesToggle: Bool = false
     
-    init(_ gridFrame: CGRect) {
+    init(_ gridFrame: CGRect, _ difficulty: Int) {
         self.gridFrame = gridFrame
         labels = Array(repeating: Array(repeating: SKLabelNode(), count: 9), count: 9)
         cellBackgrounds = Array(repeating: Array(repeating: SKSpriteNode(), count: 9), count: 9)
@@ -51,9 +51,8 @@ class GridNode: SKNode {
         entangledCellFrames = []
         
         super.init()
-        
         initialize_grid()
-        make_puzzle(-1)
+        make_puzzle(Int32(difficulty))
         
         // HORIZONTAL LINES
         for i in 0..<gridLines[0].count {

@@ -10,7 +10,7 @@ import SpriteKit
 import GameplayKit
 
 protocol QSceneDelegate: AnyObject {
-    func moveToGameScene(scene: HomeScene, game_code: Int)
+    func moveToGameScene(scene: HomeScene, difficulty: Int, _ gameCode: Int)
     func moveToHomeScene(scene: GameScene, return_code: Int)
 }
 
@@ -53,10 +53,14 @@ class MainViewController: UIViewController, QSceneDelegate {
         }
     }
     
-    func moveToGameScene(scene: HomeScene, game_code: Int) {
+    func moveToGameScene(scene: HomeScene, difficulty: Int, _ gameCode: Int) {
         if gameScene != nil {
             // Get the SKScene from the loaded GKScene
             let gameRoot = gameScene!.rootNode as! GameScene
+            if gameCode == 0 {
+                gameRoot.setDifficulty(difficulty)
+                gameRoot.clearGrid()
+            }
             // Copy gameplay related content over to the scene
             
             // Present the scene

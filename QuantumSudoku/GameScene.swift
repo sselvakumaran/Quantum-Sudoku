@@ -21,6 +21,7 @@ class GameScene: SKScene {
     var miscButtons: [ButtonNode] = []
     var actionButtons: [ButtonNode] = []
     var numberButtons: [ButtonNode] = []
+    var difficulty: Int = -1
     
     var time: Date = Date()
     
@@ -67,9 +68,6 @@ class GameScene: SKScene {
             parentPlaceholder.removeChildren(in: [placeholderNode])
             addChild(numberButtons[i])
         }
-        
-        gridFrame = GridNode(self.childNode(withName: "GridFrame")!.frame)
-        addChild(gridFrame!)
         
         // DEFINING BUTTON FUNCTIONS
         
@@ -125,8 +123,20 @@ class GameScene: SKScene {
     override func didMove(to view: SKView) {
         super.didMove(to: view)
         
+        gridFrame = GridNode(self.childNode(withName: "GridFrame")!.frame, difficulty)
+        addChild(gridFrame!)
         // Code to run when the scene is first loaded into view
         time = Date.now
+    }
+    
+    func setDifficulty(_ difficulty: Int) {
+        self.difficulty = difficulty;
+    }
+    
+    func clearGrid() {
+        if gridFrame != nil {
+            removeChildren(in: [gridFrame!])
+        }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
