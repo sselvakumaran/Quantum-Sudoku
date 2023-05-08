@@ -13,6 +13,8 @@ class GameScene: SKScene {
     let secondaryTextColor = Palette.textSymbolBold
     let backgroundFrame = Palette.backgroundFrame
     
+    let buttonClearDelay = 2.0
+    
     weak var switchDelegate: QSceneDelegate?
     
     var gridFrame: GridNode? = nil
@@ -28,6 +30,8 @@ class GameScene: SKScene {
     
     let MISC_SYMBOL_NAMES = ["arrowshape.turn.up.backward.fill", "gearshape.fill"]
     let ACTION_SYMBOL_NAMES = ["pencil.line", "arrow.uturn.backward", "checkmark.circle.badge.questionmark.fill", "eraser.fill", "pencil.line"]
+    let CHECK_SYMBOL_NAMES = ["checkmark.circle.badge.questionmark.fill", "checkmark.circle.fill", "x.circle.fill"]
+    let CHECK_SYMBOL_COLORS = Palette.checkValidity
     
     override func sceneDidLoad() {
         var placeholderNode: SKNode = SKNode()
@@ -83,8 +87,7 @@ class GameScene: SKScene {
             self.gridFrame!.toggleNotes()
             let toggle = self.gridFrame!.notesToggle
             for i in [0, 4] {
-                self.actionButtons[i].changeColors(buttonColor: toggle ? self.secondaryTextColor : self.buttonColor,
-                                                   contentColor: toggle ? self.buttonColor : self.secondaryTextColor)
+                self.actionButtons[i].changeColors(toggle ? self.secondaryTextColor : self.buttonColor, toggle ? self.buttonColor : self.secondaryTextColor, toggle ? self.buttonColor : self.secondaryTextColor)
             }
         }
         // UNDO
@@ -94,8 +97,9 @@ class GameScene: SKScene {
         // CHECK
         actionButtons[2].action = {
             let result = self.gridFrame!.checkGrid()
-            if result {
-                print("eyoooo")
+            self.actionButtons[2].changeSymbol(self.CHECK_SYMBOL_NAMES[result ? 1 : 2],  self.buttonColor, self.CHECK_SYMBOL_COLORS[result ? 1 : 2])
+            DispatchQueue.main.asyncAfter(deadline: .now() + self.buttonClearDelay) {
+                self.actionButtons[2].changeSymbol(self.CHECK_SYMBOL_NAMES[0], self.CHECK_SYMBOL_COLORS[0], self.CHECK_SYMBOL_COLORS[0])
             }
         }
         // ERASE

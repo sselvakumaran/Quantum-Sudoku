@@ -108,18 +108,33 @@ class ButtonNode: SKNode {
         }
     }
     
-    func changeColors(buttonColor: UIColor, contentColor: UIColor) {
+    func changeColors(_ buttonColor: UIColor, _ contentColor1: UIColor, _ contentColor2: UIColor) {
         self.background!.fillColor = buttonColor
         if (contentLabel != nil) {
-            contentLabel!.fontColor = contentColor
+            contentLabel!.fontColor = contentColor1
         }
         if (contentSymbol != nil) {
             let imageconfig = UIImage.SymbolConfiguration(weight: .regular)
-                .applying(UIImage.SymbolConfiguration(paletteColors: [contentColor, contentColor, contentColor]))
+                .applying(UIImage.SymbolConfiguration(paletteColors: [contentColor1, contentColor2, contentColor2]))
             let image = contentSymbolImage!.applyingSymbolConfiguration(imageconfig)
             let data = image!.pngData()
             contentSymbol!.texture = SKTexture(image: UIImage(data: data!)!)
         }
+    }
+    
+    func changeSymbol(_ buttonSymbol: String, _ contentColor1: UIColor, _ contentColor2: UIColor) {
+        let imageconfig = UIImage.SymbolConfiguration(weight: .regular)
+            .applying(UIImage.SymbolConfiguration(paletteColors: [contentColor1, contentColor2, contentColor2]))
+        contentSymbolImage = UIImage(systemName: buttonSymbol)!.applyingSymbolConfiguration(imageconfig)
+        let data = contentSymbolImage!.pngData()
+        contentSymbol!.texture = SKTexture(image: UIImage(data: data!)!)
+        print(contentSymbolImage!.size)
+        print()
+        let ratio = 0.5 * (background!.frame.width > background!.frame.height ?
+                           background!.frame.width / contentSymbolImage!.size.width :
+                            background!.frame.height / contentSymbolImage!.size.height)
+        contentSymbol!.size = CGSize(width: contentSymbolImage!.size.width * ratio, height: contentSymbolImage!.size.height * ratio)
+        print(contentSymbol!.size)
     }
     
     

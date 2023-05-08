@@ -26,7 +26,7 @@ class GridNode: SKNode {
     let TERTIARY_SELECTED_COLOR = Palette.backgroundTertiary
     let UNSELECTED_GRID_COLOR = Palette.backgroundNormal
     let GRADIENT_COLORS = Palette.gradientColors
-    let INCORRECT_COLOR = Palette.incorrectCell
+    let INCORRECT_COLOR = Palette.checkValidity[2]
     
     var gridFrame: CGRect = CGRect()
     // [ROW][COLUMN]

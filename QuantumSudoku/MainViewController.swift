@@ -24,10 +24,6 @@ class MainViewController: UIViewController, QSceneDelegate {
         
         super.viewDidLoad()
         
-        let mainScene = SKScene(size: view.bounds.size)
-        
-        
-        
         let homeRoot = HomeScene(fileNamed: "HomeScene")!
         let gameRoot = GameScene(fileNamed: "GameScene")!
         

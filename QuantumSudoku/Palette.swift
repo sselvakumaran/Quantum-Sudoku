@@ -33,7 +33,7 @@ class Palette {
     static let gridStrongLine = UIColor(named: "GridStrongLine")!
     static let gridWeakLine = UIColor(named: "GridWeakLine")!
     
-    static let incorrectCell = UIColor(named: "IncorrectCell")!
+    static let checkValidity = [textSymbolBold, UIColor(named: "ValidCheck")!, UIColor(named: "InvalidCheck")!]
     
     static let gradientColors = [UIColor(named: "GradientPink")!,
                                  UIColor(named: "GradientHotPink")!,

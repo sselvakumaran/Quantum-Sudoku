@@ -41,7 +41,6 @@ class HomeScene: SKScene {
             self.switchDelegate!.moveToGameScene(scene: self, game_code: 0)
         }
         
-        print(frame.size)
         let backgroundNode = SKSpriteNode(color: Palette.backgroundFrame, size: CGSize(width:10000, height:10000))
         backgroundNode.position = CGPoint(x: frame.midX, y: frame.midY)
         backgroundNode.zPosition = -1
