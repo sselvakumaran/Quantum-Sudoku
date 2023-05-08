@@ -25,5 +25,6 @@ Another thing to note is that if the cells are treated like particles, then that
 ## To the experienced Sudoku player
 To the experienced Sudoku player, this screams Killer Sudoku, but remember that just like in real life, entangled particles can span any distance apart and they will still be entangled! They can be across the board. While this makes significantly less techniques possible to port from Killer, since the bound is the sum of 10 (right now), it keeps things a little simpiler. This version of Sudoku is not meant to be as difficult as Killer, but rather extremely comparable to normal Sudoku. I hope you enjoy the new techniques that might come from this brand new game mode.
 ### Project details
-
+to be updated...
 ### Sudoku algorithm details
+to be updated...
