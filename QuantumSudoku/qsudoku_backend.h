@@ -12,8 +12,6 @@
 #include <stdlib.h>
 #include <assert.h>
 
-#define G(r,c) (9*(r) + (c))
-
 void initialize_grid(void);
 void make_puzzle(int difficulty);
 int place_number(int row, int column, int number);

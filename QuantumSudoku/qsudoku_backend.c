@@ -6,6 +6,7 @@
 //
 
 #include "qsudoku_backend.h"
+#include "demo-puzzles.h"
 
 /*
 first 4 bits: current shown number (placed by user)
@@ -23,30 +24,6 @@ static int num_entangled_systems = 0; //holds the index of the first cell in tha
 static const int NUM_CELLS = 9*9;
 static const int MAX_SYSTEMS = (NUM_CELLS) / 2;
 
-const static uint8_t TESTPUZZLE_ANSWERS[9][9] =
-    {{9,1,6,3,5,7,8,2,4},
-    {4,7,5,8,1,2,9,3,6},
-    {3,8,2,6,9,4,5,1,7},
-    {1,6,3,7,2,8,4,5,9},
-    {5,2,7,9,4,6,3,8,1},
-    {8,9,4,1,3,5,7,6,2},
-    {6,5,1,4,7,3,2,9,8},
-    {2,4,9,5,8,1,6,7,3},
-    {7,3,8,2,6,9,1,4,5}};
-const static uint8_t TESTPUZZLE_GIVEN[9][9] =
-    {{10,0,10,10,0,10,0,0,0},
-    {0,10,10,0,10,0,0,10,10},
-    {10,10,0,0,0,0,10,0,10},
-    {0,10,0,10,0,0,0,0,10},
-    {10,0,0,0,10,0,10,10,10},
-    {0,10,0,0,10,10,0,10,0},
-    {0,0,10,0,0,0,0,10,0},
-    {10,0,10,10,10,0,10,0,10},
-    {10,0,0,10,10,0,10,0,10}};
-const static uint8_t TESTPUZZLE_ENTANGLED[] = {G(0,0), G(7,7), G(5, 2), G(5,6), G(8,3), G(0,8), G(2,3), G(8,1)};
-const static uint8_t TESTPUZZLE_SYSTEMPOSLIST[] = {0,2,5,8};
-const static uint8_t TESTPUZZLE_NUMENTANGLEDSYSTEMS = 3;
-
 void initialize_grid(void) {
     int i;
     grid = calloc(NUM_CELLS, sizeof(uint8_t));
@@ -61,16 +38,17 @@ void initialize_grid(void) {
 }
 
 void make_puzzle(int difficulty) {
-    if (!difficulty) {
+    if (difficulty < 0) {
         int i, j;
+        difficulty = -difficulty - 1;
         for (i = 0; i < 9; i++)
             for (j = 0; j < 9; j++)
-                grid[9*i + j]= (TESTPUZZLE_ANSWERS[i][j] << 4) + TESTPUZZLE_GIVEN[i][j];
-        num_entangled_systems = TESTPUZZLE_NUMENTANGLEDSYSTEMS;
+                grid[9*i + j]= (DEMO_ANSWERS[difficulty][i][j] << 4) + DEMO_GIVEN[difficulty][i][j];
+        num_entangled_systems = DEMO_NUMENTANGLEDSYSTEMS[difficulty];
         for (i = 0; i <= num_entangled_systems; i++) // GOES ONE OVER TO COVER SENTINEL
-            system_pos_list[i] = TESTPUZZLE_SYSTEMPOSLIST[i];
+            system_pos_list[i] = DEMO_SYSTEMPOSLIST[difficulty][i];
         for (i = 0; i < system_pos_list[num_entangled_systems]; i++)
-            entangled[i] = TESTPUZZLE_ENTANGLED[i];
+            entangled[i] = DEMO_ENTANGLED[difficulty][i];
     } else {
         
     }

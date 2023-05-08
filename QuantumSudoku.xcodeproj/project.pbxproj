@@ -48,6 +48,7 @@
 		7405148E2A05910D0084B374 /* qsudoku_backend.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = qsudoku_backend.h; sourceTree = "<group>"; };
 		7405148F2A05910D0084B374 /* qsudoku_backend.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = qsudoku_backend.c; sourceTree = "<group>"; };
 		741429A629E45C9A00D0861A /* sudoku3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sudoku3.png; sourceTree = "<group>"; };
+		7430DF802A093E82007FC92B /* demo-puzzles.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "demo-puzzles.h"; sourceTree = "<group>"; };
 		74417CA52A03F31F003562B2 /* GridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridNode.swift; sourceTree = "<group>"; };
 		7490E2A529FF26750081FE2F /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		7493182C29EC3C6E00CF49E8 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -141,6 +142,7 @@
 				7405148E2A05910D0084B374 /* qsudoku_backend.h */,
 				7405148F2A05910D0084B374 /* qsudoku_backend.c */,
 				7405148D2A05910D0084B374 /* QuantumSudoku-Bridging-Header.h */,
+				7430DF802A093E82007FC92B /* demo-puzzles.h */,
 			);
 			path = QuantumSudoku;
 			sourceTree = "<group>";

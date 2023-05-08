@@ -53,7 +53,7 @@ class GridNode: SKNode {
         super.init()
         
         initialize_grid()
-        make_puzzle(0)
+        make_puzzle(-1)
         
         // HORIZONTAL LINES
         for i in 0..<gridLines[0].count {
@@ -294,8 +294,8 @@ class GridNode: SKNode {
                 if (check_cell(Int32(r),Int32(c)) == 0) {
                     if (get_number(Int32(r), Int32(c)) != 0) {
                         labels[r][c].fontColor = INCORRECT_COLOR
+                        result = false
                     }
-                    result = false
                 }
             }
         }

@@ -128,13 +128,10 @@ class ButtonNode: SKNode {
         contentSymbolImage = UIImage(systemName: buttonSymbol)!.applyingSymbolConfiguration(imageconfig)
         let data = contentSymbolImage!.pngData()
         contentSymbol!.texture = SKTexture(image: UIImage(data: data!)!)
-        print(contentSymbolImage!.size)
-        print()
         let ratio = 0.5 * (background!.frame.width > background!.frame.height ?
                            background!.frame.width / contentSymbolImage!.size.width :
                             background!.frame.height / contentSymbolImage!.size.height)
         contentSymbol!.size = CGSize(width: contentSymbolImage!.size.width * ratio, height: contentSymbolImage!.size.height * ratio)
-        print(contentSymbol!.size)
     }
     
     
