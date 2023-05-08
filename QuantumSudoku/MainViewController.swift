@@ -16,34 +16,38 @@ protocol QSceneDelegate: AnyObject {
 
 class MainViewController: UIViewController, QSceneDelegate {
     
+    var backgroundNode: SKSpriteNode!
     var homeScene: GKScene? = nil
     var gameScene: GKScene? = nil
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        // Load 'GameScene.sks' as a GKScene. This provides gameplay related content
-        // including entities and graphs.
+        
+        let mainScene = SKScene(size: view.bounds.size)
+        
+        
         
         let homeRoot = HomeScene(fileNamed: "HomeScene")!
         let gameRoot = GameScene(fileNamed: "GameScene")!
+        
+        homeRoot.scaleMode = .aspectFit
+        gameRoot.scaleMode = .aspectFit
         
         homeScene = GKScene()
         gameScene = GKScene()
         
         homeScene!.rootNode = homeRoot
         gameScene!.rootNode = gameRoot
-            
+        
         if homeScene != nil {
             // Copy gameplay related content over to the scene
+            
             self.view.backgroundColor = Palette.backgroundFrame
             //view.frame = self.view.safeAreaLayoutGuide.layoutFrame
             
             homeRoot.switchDelegate = self
             gameRoot.switchDelegate = self
-            // Set the scale mode to scale to fit the window
-            homeRoot.scaleMode = .aspectFit //change to .fill
-            //homeRoot.adjustToFrame(frame: self.view.safeAreaLayoutGuide.layoutFrame)
             
             // Present the scene
             if let view = self.view as! SKView? {
@@ -58,10 +62,7 @@ class MainViewController: UIViewController, QSceneDelegate {
             // Get the SKScene from the loaded GKScene
             let gameRoot = gameScene!.rootNode as! GameScene
             // Copy gameplay related content over to the scene
-                
-            // Set the scale mode to scale to fit the window
-            gameRoot.scaleMode = .aspectFit //change to .fill
-            //gameRoot.adjustToFrame(frame: self.view.safeAreaLayoutGuide.layoutFrame)
+            
             // Present the scene
             if let view = self.view as! SKView? {
                 //view.frame = self.view.safeAreaLayoutGuide.layoutFrame

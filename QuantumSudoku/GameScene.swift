@@ -31,7 +31,6 @@ class GameScene: SKScene {
     
     override func sceneDidLoad() {
         var placeholderNode: SKNode = SKNode()
-        
         self.backgroundColor = backgroundFrame
         
         for i in 0..<MISC_BUTTON_NAMES.count {
@@ -120,6 +119,7 @@ class GameScene: SKScene {
     }
     
     override func didMove(to view: SKView) {
+        super.didMove(to: view)
         
         // Code to run when the scene is first loaded into view
         time = Date.now

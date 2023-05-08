@@ -19,6 +19,7 @@ class HomeScene: SKScene {
     var resumeGameButton: ButtonNode? = nil
     
     override func sceneDidLoad() {
+        super.sceneDidLoad()
         self.isUserInteractionEnabled = true
         // Set the background color of the SKScene to the dynamic color
         let newGamePlaceholder = self.childNode(withName: "NewGameButton")!
@@ -40,6 +41,12 @@ class HomeScene: SKScene {
             self.switchDelegate!.moveToGameScene(scene: self, game_code: 0)
         }
         
+        print(frame.size)
+        let backgroundNode = SKSpriteNode(color: Palette.backgroundFrame, size: CGSize(width:10000, height:10000))
+        backgroundNode.position = CGPoint(x: frame.midX, y: frame.midY)
+        backgroundNode.zPosition = -1
+        addChild(backgroundNode)
+        
         removeChildren(in: [newGamePlaceholder, resumeGamePlaceholder])
         addChild(newGameButton!)
         addChild(resumeGameButton!)
@@ -48,6 +55,8 @@ class HomeScene: SKScene {
     }
     
     override func didMove(to view: SKView) {
+        super.didMove(to: view)
+        
         // Code to run when the scene is first loaded into view
         updateColorStyles()
     }

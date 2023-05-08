@@ -71,6 +71,8 @@ void make_puzzle(int difficulty) {
             system_pos_list[i] = TESTPUZZLE_SYSTEMPOSLIST[i];
         for (i = 0; i < system_pos_list[num_entangled_systems]; i++)
             entangled[i] = TESTPUZZLE_ENTANGLED[i];
+    } else {
+        
     }
 }
 
@@ -100,23 +102,29 @@ int check_cell(int row, int column) {
     int8_t cell = grid[9*row + column];
     return (cell & 0xf) == 10 || (cell >> 4) == (cell & 0xf);
 }
+
 int get_num_entangled_systems(void) {
     return num_entangled_systems;
 }
+
 int get_num_entangled_in_system(int system) {
     assert(system < num_entangled_systems);
     return system_pos_list[system + 1] - system_pos_list[system];
 }
+
 int get_pos_entangled_cell(int system, int cell_num) {
     assert(cell_num < get_num_entangled_in_system(system));
     return entangled[system_pos_list[system] + cell_num];
 }
+
 int get_row(int pos) {
     return pos / 9;
 }
+
 int get_column(int pos) {
     return pos % 9;
 }
+
 int toggle_note(int row, int column, int number) {
     int pos = 9*row + column;
     int result = !(grid[pos] & 0xf) - 1, byte, remainder;
@@ -137,15 +145,18 @@ int toggle_note(int row, int column, int number) {
     }
     return result;
 }
+
 int get_notes(int row, int column) {
     int pos = 9*(9*row + column);
     int byte = pos/8, remainder = pos % 8;
     return ((uint16_t) (notes[byte]) << (remainder + 1)) + (notes[byte + 1] >> (7 - remainder));
 }
+
 int note_exists(int row, int column, int number) {
     int pos = 9*(9*row + column) + (9 - number);
     return (notes[pos/8] & (1 << (7 - (pos % 8)))) != 0;
 }
+
 void cleanup(void) {
     if (grid != NULL) {
         free(grid);
