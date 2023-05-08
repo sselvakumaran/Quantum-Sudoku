@@ -38,8 +38,10 @@ class HomeScene: SKScene {
             alertController.addAction(UIAlertAction(title: "Evil", style: .default) { _ in
                 self.switchDelegate!.moveToGameScene(scene: self, difficulty: -3, 0)
             })
-            alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel) { _ in
-            })
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { _ in
+            }
+            cancelAction.setValue(Palette.checkValidity[2], forKey: "titleTextColor")
+            alertController.addAction(cancelAction)
             self.view?.window?.rootViewController?.present(alertController, animated: true)
         }
         
