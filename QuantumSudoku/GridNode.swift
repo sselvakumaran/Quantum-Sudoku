@@ -34,6 +34,7 @@ class GridNode: SKNode {
     var noteLabels: [[[SKLabelNode?]?]]
     var cellBackgrounds: [[SKSpriteNode]]
     var entangledCellFrames: [[SKShapeNode]]
+//    var entangledCellEffect: [[SKEffectNode]]
     var systemColors: [UIColor] = []
     
     // [HORIZONTAL, VERTICAL]
@@ -49,6 +50,7 @@ class GridNode: SKNode {
         gridLines = [Array(repeating: SKShapeNode(), count: 10), Array(repeating: SKShapeNode(), count: 10)]
         noteLabels = Array(repeating: Array(repeating: nil, count: 9), count: 9)
         entangledCellFrames = []
+//        entangledCellEffect = []
         
         super.init()
         initialize_grid()
@@ -109,10 +111,12 @@ class GridNode: SKNode {
         }
         let num_systems = get_num_entangled_systems()
         entangledCellFrames = Array(repeating: [], count: Int(num_systems))
+//        entangledCellEffect = Array(repeating: [], count: Int(num_systems))
         systemColors = Palette.gradientColors.shuffled()
         for system in 0..<num_systems {
             let num_cells = get_num_entangled_in_system(system)
             entangledCellFrames[Int(system)] = Array(repeating: SKShapeNode(), count: Int(num_cells))
+//            entangledCellEffect[Int(system)] = Array(repeating: SKEffectNode(), count: Int(num_cells))
             for cell in 0..<num_cells {
                 let pos = get_pos_entangled_cell(system, cell)
                 let bgframe = cellBackgrounds[Int(get_row(pos))][Int(get_column(pos))].frame
@@ -128,10 +132,17 @@ class GridNode: SKNode {
                 entangledFrame.zPosition = 1
                 entangledCellFrames[Int(system)][Int(cell)] = entangledFrame
                 addChild(entangledCellFrames[Int(system)][Int(cell)])
+                
+//                entangledCellEffect[Int(system)][Int(cell)] = SKEffectNode()
+//                let label = labels[Int(get_row(pos))][Int(get_column(pos))]
+//                removeChildren(in: [label])
+//                addChild(entangledCellEffect[Int(system)][Int(cell)])
+//                entangledCellEffect[Int(system)][Int(cell)].addChild(label)
+//                entangledCellEffect[Int(system)][Int(cell)].warpGeometry = SKWarpGeometryGrid(columns: 3, rows: 3, sourcePositions: Palette.returnWarpGridInit(3), destinationPositions: Palette.returnWarpGridInit(3))
             }
         }
         
-//        Palette.setRng(seed: Date.now.hashValue)
+        Palette.setRng(seed: Date.now.hashValue)
         
         self.isUserInteractionEnabled = true
     }
@@ -169,7 +180,7 @@ class GridNode: SKNode {
                     for column in 0..<9 {
                         if (row != selectedCell.row || column != selectedCell.column) && (note_exists(Int32(row), Int32(column), num) != 0) {
                             toggle_note(Int32(row), Int32(column), num)
-                            if noteLabels[row][column]![Int(num) - 1] != nil {
+                            if noteLabels[row][column] != nil && noteLabels[row][column]![Int(num) - 1] != nil {
                                 removeChildren(in: [noteLabels[row][column]![Int(num) - 1]!])
                             }
                             noteLabels[row][column]![Int(num - 1)] = nil
@@ -283,7 +294,12 @@ class GridNode: SKNode {
             let num_cells = get_num_entangled_in_system(system)
             for cell in 0..<num_cells {
                 entangledCellFrames[Int(system)][Int(cell)].strokeColor = Palette.gradientMix([systemColors[Int(system)], UNSELECTED_GRID_COLOR], Palette.timeToCosineLerp(time + Double(system)))
-
+//                if time < 1 {
+//                    let warpGeometryGrid = SKWarpGeometryGrid(columns: 3, rows: 3, sourceP)
+//                    let noWarp = SKWarpGeometryGrid(columns: 3, rows: 3, sourcePositions: Palette.returnRandomWarpGrid(3))
+//                    let warpAction = SKAction.animate(withWarps: [, Palette.returnWarpGridInit(3)], times: [0.0 0.5 1.0])
+//                    entangledCellEffect[Int(system)][Int(cell)].run(warpAction!)
+//                }
             }
         }
     }

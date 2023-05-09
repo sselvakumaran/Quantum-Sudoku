@@ -92,30 +92,30 @@ class Palette {
         rng = RNG(seed: seed)
     }
     
-//    static func returnWarpGridInit(_ grid_length: Int) -> [SIMD2<Float>] {
-//        var arr = Array(repeating: SIMD2<Float>(0,0), count: (grid_length + 1) * (grid_length + 1))
-//        for x in 0..<grid_length + 1 {
-//            for y in 0..<grid_length + 1 {
-//                arr[x*grid_length + y] = SIMD2<Float>(Float(x) / Float(grid_length), Float(y) / Float(grid_length))
-//            }
-//        }
-//        return arr
-//    }
-//
-//    static func returnWarpGridAtMoment(_ grid_length: Int, _ t: Double) -> [SIMD2<Float>] {
-//        var arr = Array(repeating: SIMD2<Float>(0,0), count: (grid_length + 1) * (grid_length + 1))
-//        let bounds = 0.25 / Float(grid_length)
-//        for x in 0..<grid_length + 1 {
-//            for y in 0..<grid_length + 1 {
-//                let r = Float.random(in: 0..<1, using: &rng)
-//                let theta = Float.random(in: 0..<Float.pi, using: &rng)
-//                arr[x*grid_length + y] = SIMD2<Float>(Float(x) / Float(grid_length) + r*cos(theta),
-//                                                      Float(y) / Float(grid_length) + r*sin(theta))
-//                print(String(format: "(%d, %d)", arr[x*grid_length + y].x, arr[x*grid_length + y].y))
-//            }
-//        }
-//        return arr
-//    }
+    static func returnWarpGridInit(_ grid_length: Int) -> [SIMD2<Float>] {
+        var arr = Array(repeating: SIMD2<Float>(0,0), count: (grid_length + 1) * (grid_length + 1))
+        for x in 0..<grid_length + 1 {
+            for y in 0..<grid_length + 1 {
+                arr[x*grid_length + y] = SIMD2<Float>(Float(x) / Float(grid_length), Float(y) / Float(grid_length))
+                print(String(format: "%f, %f ", Float(x) / Float(grid_length), Float(y) / Float(grid_length)))
+            }
+        }
+        return arr
+    }
+
+    static func returnRandomWarpGrid(_ grid_length: Int) -> [SIMD2<Float>] {
+        var arr = Array(repeating: SIMD2<Float>(0,0), count: (grid_length + 1) * (grid_length + 1))
+        let bounds = 0.05 / Float(grid_length)
+        for x in 0..<grid_length + 1 {
+            for y in 0..<grid_length + 1 {
+                let r = Float.random(in: 0..<1, using: &rng) * bounds
+                let theta = Float.random(in: 0..<2 * Float.pi, using: &rng)
+                arr[x*grid_length + y] = SIMD2<Float>(Float(x) / Float(grid_length),
+                                                      Float(y) / Float(grid_length))
+            }
+        }
+        return arr
+    }
     
     static let mainTextFont = "Helvetica"
     static let gridNumberFont = "Menlo"
