@@ -131,6 +131,8 @@ class GridNode: SKNode {
             }
         }
         
+//        Palette.setRng(seed: Date.now.hashValue)
+        
         self.isUserInteractionEnabled = true
     }
     
@@ -280,8 +282,8 @@ class GridNode: SKNode {
         for system in 0..<num_systems {
             let num_cells = get_num_entangled_in_system(system)
             for cell in 0..<num_cells {
-                entangledCellFrames[Int(system)][Int(cell)].strokeColor = Palette.gradientMix([systemColors[Int(system)], UNSELECTED_GRID_COLOR],
-                                                                                              Palette.timeToCosineLerp(time + Double(system)))
+                entangledCellFrames[Int(system)][Int(cell)].strokeColor = Palette.gradientMix([systemColors[Int(system)], UNSELECTED_GRID_COLOR], Palette.timeToCosineLerp(time + Double(system)))
+                labels[Int(system)][Int(cell)]
             }
         }
     }

@@ -18,6 +18,20 @@ struct UIDim2 {
     }
 }
 
+struct RNG: RandomNumberGenerator {
+    init(seed: Int) {
+        // Set the random seed
+        srand48(seed)
+    }
+    
+    func next() -> UInt64 {
+        // drand48() returns a Double, transform to UInt64
+        return withUnsafeBytes(of: drand48()) { bytes in
+            bytes.load(as: UInt64.self)
+        }
+    }
+}
+
 class Palette {
     
     static let backgroundFrame = UIColor(named: "BackgroundFrame")!
@@ -50,6 +64,8 @@ class Palette {
     
     static let gradientPeriod = 0.5
     
+    static var rng: RNG = RNG(seed: Date.now.hashValue)
+    
     static func gradientMix(_ set: [Int], _ t: Double) -> UIColor {
         let color1 = gradientColors[set[0]].cgColor.components!
         let color2 = gradientColors[set[1]].cgColor.components!
@@ -68,9 +84,38 @@ class Palette {
                        alpha: color1[3] * (1-t2) + color2[3] * t2)
     }
     
-    static func timeToCosineLerp(_ t: Double) -> Double{
+    static func timeToCosineLerp(_ t: Double) -> Double {
         return 0.5 * (1 + cos(t * Double.pi / gradientPeriod));
     }
+    
+    static func setRng(seed: Int) {
+        rng = RNG(seed: seed)
+    }
+    
+//    static func returnWarpGridInit(_ grid_length: Int) -> [SIMD2<Float>] {
+//        var arr = Array(repeating: SIMD2<Float>(0,0), count: (grid_length + 1) * (grid_length + 1))
+//        for x in 0..<grid_length + 1 {
+//            for y in 0..<grid_length + 1 {
+//                arr[x*grid_length + y] = SIMD2<Float>(Float(x) / Float(grid_length), Float(y) / Float(grid_length))
+//            }
+//        }
+//        return arr
+//    }
+//
+//    static func returnWarpGridAtMoment(_ grid_length: Int, _ t: Double) -> [SIMD2<Float>] {
+//        var arr = Array(repeating: SIMD2<Float>(0,0), count: (grid_length + 1) * (grid_length + 1))
+//        let bounds = 0.25 / Float(grid_length)
+//        for x in 0..<grid_length + 1 {
+//            for y in 0..<grid_length + 1 {
+//                let r = Float.random(in: 0..<1, using: &rng)
+//                let theta = Float.random(in: 0..<Float.pi, using: &rng)
+//                arr[x*grid_length + y] = SIMD2<Float>(Float(x) / Float(grid_length) + r*cos(theta),
+//                                                      Float(y) / Float(grid_length) + r*sin(theta))
+//                print(String(format: "(%d, %d)", arr[x*grid_length + y].x, arr[x*grid_length + y].y))
+//            }
+//        }
+//        return arr
+//    }
     
     static let mainTextFont = "Helvetica"
     static let gridNumberFont = "Menlo"
