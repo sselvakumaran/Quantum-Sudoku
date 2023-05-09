@@ -69,7 +69,6 @@ class HomeScene: SKScene {
     
     override func didMove(to view: SKView) {
         super.didMove(to: view)
-        
         // Code to run when the scene is first loaded into view
         updateColorStyles()
     }
@@ -90,7 +89,6 @@ class HomeScene: SKScene {
     func updateColorStyles() {
         // background color
         self.backgroundColor = backgroundFrame
-        
         
         // color gradient for Title1
         /*let labelNode = self.childNode(withName: "Title1") as! SKLabelNode

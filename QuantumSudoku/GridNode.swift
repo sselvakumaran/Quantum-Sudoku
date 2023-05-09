@@ -283,7 +283,7 @@ class GridNode: SKNode {
             let num_cells = get_num_entangled_in_system(system)
             for cell in 0..<num_cells {
                 entangledCellFrames[Int(system)][Int(cell)].strokeColor = Palette.gradientMix([systemColors[Int(system)], UNSELECTED_GRID_COLOR], Palette.timeToCosineLerp(time + Double(system)))
-                labels[Int(system)][Int(cell)]
+
             }
         }
     }

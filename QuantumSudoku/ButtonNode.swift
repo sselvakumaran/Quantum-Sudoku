@@ -21,6 +21,7 @@ class ButtonNode: SKNode {
         buttonShape.fillColor = buttonColor
         buttonShape.strokeColor = UIColor.clear
         buttonShape.name = "Background"
+        background = buttonShape
         addChild(buttonShape)
         
         // Create the label for the button

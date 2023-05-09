@@ -27,8 +27,8 @@ class MainViewController: UIViewController, QSceneDelegate {
         let homeRoot = HomeScene(fileNamed: "HomeScene")!
         let gameRoot = GameScene(fileNamed: "GameScene")!
         
-        homeRoot.scaleMode = .aspectFit
-        gameRoot.scaleMode = .aspectFit
+        homeRoot.scaleMode = .aspectFill
+        gameRoot.scaleMode = .aspectFill
         
         homeScene = GKScene()
         gameScene = GKScene()

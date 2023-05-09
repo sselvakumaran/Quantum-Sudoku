@@ -78,7 +78,7 @@ int get_answer(int row, int column) {
 
 int check_cell(int row, int column) {
     int8_t cell = grid[9*row + column];
-    return (cell & 0xf) == 10 || (cell >> 4) == (cell & 0xf);
+    return (cell & 0xf) == 10 || ((cell & 0xf0) >> 4) == (cell & 0xf);
 }
 
 int get_num_entangled_systems(void) {
